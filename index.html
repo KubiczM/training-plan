@@ -87,7 +87,6 @@
   .rest-row { display:flex; justify-content:space-between; padding:11px 14px; border-bottom:1px solid var(--darker); font-family:monospace; font-size:12px; }
   .rest-row:last-child { border-bottom:none; }
   .rest-row span:last-child { color:var(--accent); }
-  .note-box { background:#0f0f1a; border:1px solid #333355; border-radius:10px; padding:10px 14px; margin-bottom:8px; font-family:monospace; font-size:11px; color:#8888cc; }
 </style>
 </head>
 <body>
@@ -102,201 +101,198 @@
 </div>
 
 <nav class="nav">
-  <button class="nav-btn active" style="border-bottom-color:var(--squat)" data-tab="pon" onclick="switchTab('pon')">PON</button>
-  <button class="nav-btn" data-tab="wt" onclick="switchTab('wt')">WT</button>
-  <button class="nav-btn" data-tab="czw" onclick="switchTab('czw')">CZW</button>
-  <button class="nav-btn" data-tab="pt" onclick="switchTab('pt')">PT</button>
+  <button class="nav-btn active" style="border-bottom-color:var(--squat)" data-tab="pon" onclick="switchTab('pon')">MON</button>
+  <button class="nav-btn" data-tab="wt" onclick="switchTab('wt')">TUE</button>
+  <button class="nav-btn" data-tab="czw" onclick="switchTab('czw')">THU</button>
+  <button class="nav-btn" data-tab="pt" onclick="switchTab('pt')">FRI</button>
   <button class="nav-btn" data-tab="rules" onclick="switchTab('rules')">☰</button>
 </nav>
 
 <div class="content">
 
-  <!-- PONIEDZIAŁEK -->
+  <!-- MONDAY -->
   <div class="section active" id="tab-pon">
     <div class="day-header" style="border-left-color:var(--squat)">
-      <div class="day-sub">Poniedziałek</div>
+      <div class="day-sub">Monday</div>
       <div class="day-name" style="color:var(--squat)">Squat</div>
       <div class="day-type" style="color:var(--squat)">Lower</div>
     </div>
-    <div class="slabel">Główna praca</div>
+    <div class="slabel">Main Work</div>
     <div class="week-table">
-      <div class="week-row" data-lift="squat" data-week="1" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 1</span><span class="wsets">2 × 10</span><span class="wkg">137,5 kg</span></div>
-      <div class="week-row" data-lift="squat" data-week="2" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 2</span><span class="wsets">2 × 10</span><span class="wkg">145 kg</span></div>
-      <div class="week-row" data-lift="squat" data-week="3" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 3</span><span class="wsets">2 × 8</span><span class="wkg">152,5 kg</span></div>
-      <div class="week-row" data-lift="squat" data-week="4" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 4</span><span class="wsets">2 × 8</span><span class="wkg">160 kg</span></div>
-      <div class="week-row" data-lift="squat" data-week="5" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 5</span><span class="wsets">2 × 5</span><span class="wkg">167,5 kg</span></div>
-      <div class="week-row" data-lift="squat" data-week="6" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 6</span><span class="wsets">2 × 5</span><span class="wkg">175 kg</span></div>
-      <div class="week-row" data-lift="squat" data-week="7" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 7</span><span class="wsets">2 × 5</span><span class="wkg">182,5 kg</span></div>
-      <div class="week-row" data-lift="squat" data-week="8" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 8</span><span class="wsets">2 × 3</span><span class="wkg">190 kg</span></div>
-      <div class="week-row" data-lift="squat" data-week="9" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 9</span><span class="wsets">2 × 3</span><span class="wkg">197,5 kg</span></div>
-      <div class="week-row" data-lift="squat" data-week="10" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 10</span><span class="wsets">2 × 2</span><span class="wkg">205 kg</span></div>
-      <div class="week-row" data-lift="squat" data-week="11" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 11</span><span class="wsets">2 × 2</span><span class="wkg">212,5 kg</span></div>
-      <div class="week-row peak" data-lift="squat" data-week="12" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 12</span><span class="wsets">1 × 1</span><span class="wkg">215 kg ★</span></div>
+      <div class="week-row" data-lift="squat" data-week="1" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 1</span><span class="wsets">2 × 10</span><span class="wkg">137,5 kg</span></div>
+      <div class="week-row" data-lift="squat" data-week="2" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 2</span><span class="wsets">2 × 10</span><span class="wkg">145 kg</span></div>
+      <div class="week-row" data-lift="squat" data-week="3" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 3</span><span class="wsets">2 × 8</span><span class="wkg">152,5 kg</span></div>
+      <div class="week-row" data-lift="squat" data-week="4" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 4</span><span class="wsets">2 × 8</span><span class="wkg">160 kg</span></div>
+      <div class="week-row" data-lift="squat" data-week="5" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 5</span><span class="wsets">2 × 5</span><span class="wkg">167,5 kg</span></div>
+      <div class="week-row" data-lift="squat" data-week="6" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 6</span><span class="wsets">2 × 5</span><span class="wkg">175 kg</span></div>
+      <div class="week-row" data-lift="squat" data-week="7" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 7</span><span class="wsets">2 × 5</span><span class="wkg">182,5 kg</span></div>
+      <div class="week-row" data-lift="squat" data-week="8" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 8</span><span class="wsets">2 × 3</span><span class="wkg">190 kg</span></div>
+      <div class="week-row" data-lift="squat" data-week="9" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 9</span><span class="wsets">2 × 3</span><span class="wkg">197,5 kg</span></div>
+      <div class="week-row" data-lift="squat" data-week="10" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 10</span><span class="wsets">2 × 2</span><span class="wkg">205 kg</span></div>
+      <div class="week-row" data-lift="squat" data-week="11" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 11</span><span class="wsets">2 × 2</span><span class="wkg">212,5 kg</span></div>
+      <div class="week-row peak" data-lift="squat" data-week="12" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 12</span><span class="wsets">1 × 1</span><span class="wkg">215 kg ★</span></div>
     </div>
-    <div class="slabel">Akcesoria</div>
+    <div class="slabel">Accessories</div>
     <div class="acc-list">
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Leg Press</div><div class="acc-tags"><span class="tag">3 × 12</span><span class="tag rest">2 min</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pon-1" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="notatka" data-key="note-pon-1" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Leg Curl</div><div class="acc-tags"><span class="tag">3 × 12</span><span class="tag rest">90 sek</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pon-2" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="notatka" data-key="note-pon-2" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Hip Thrust</div><div class="acc-tags"><span class="tag">3 × 10</span><span class="tag rest">2 min</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pon-3" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="notatka" data-key="note-pon-3" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Leg Extension</div><div class="acc-tags"><span class="tag">3 × 12</span><span class="tag rest">90 sek</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pon-4" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="notatka" data-key="note-pon-4" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Łydki</div><div class="acc-tags"><span class="tag">4 × 20</span><span class="tag rest">60 sek</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pon-5" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="notatka" data-key="note-pon-5" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Side Raise</div><div class="acc-tags"><span class="tag">3 × 15</span><span class="tag rest">60 sek</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pon-6" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="notatka" data-key="note-pon-6" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Bicep Curl</div><div class="acc-tags"><span class="tag">3 × 12</span><span class="tag rest">60 sek</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pon-7" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="notatka" data-key="note-pon-7" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Leg Press</div><div class="acc-tags"><span class="tag">2 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pon-1" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pon-1" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Leg Curl</div><div class="acc-tags"><span class="tag">2 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pon-2" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pon-2" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Hip Thrust</div><div class="acc-tags"><span class="tag">2 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pon-3" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pon-3" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Leg Extension</div><div class="acc-tags"><span class="tag">2 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pon-4" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pon-4" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Calf Raises</div><div class="acc-tags"><span class="tag">3 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pon-5" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pon-5" oninput="saveNote(this)"></textarea></div></div>
     </div>
   </div>
 
-  <!-- WTOREK -->
+  <!-- TUESDAY -->
   <div class="section" id="tab-wt">
     <div class="day-header" style="border-left-color:var(--bench)">
-      <div class="day-sub">Wtorek</div>
+      <div class="day-sub">Tuesday</div>
       <div class="day-name" style="color:var(--bench)">Bench Press</div>
       <div class="day-type" style="color:var(--bench)">Upper</div>
     </div>
-    <div class="slabel">Główna praca</div>
+    <div class="slabel">Main Work</div>
     <div class="collapsible open">
       <div class="coll-header" onclick="toggleColl(this)"><span class="coll-title">Bench Press</span><span class="coll-arrow">▼</span></div>
       <div class="coll-body"><div class="week-table">
-        <div class="week-row" data-lift="bench" data-week="1" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 1</span><span class="wsets">2 × 10</span><span class="wkg">72,5 kg</span></div>
-        <div class="week-row" data-lift="bench" data-week="2" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 2</span><span class="wsets">2 × 10</span><span class="wkg">77,5 kg</span></div>
-        <div class="week-row" data-lift="bench" data-week="3" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 3</span><span class="wsets">2 × 8</span><span class="wkg">82,5 kg</span></div>
-        <div class="week-row" data-lift="bench" data-week="4" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 4</span><span class="wsets">2 × 8</span><span class="wkg">87,5 kg</span></div>
-        <div class="week-row" data-lift="bench" data-week="5" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 5</span><span class="wsets">2 × 5</span><span class="wkg">92,5 kg</span></div>
-        <div class="week-row" data-lift="bench" data-week="6" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 6</span><span class="wsets">2 × 5</span><span class="wkg">97,5 kg</span></div>
-        <div class="week-row" data-lift="bench" data-week="7" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 7</span><span class="wsets">2 × 5</span><span class="wkg">102,5 kg</span></div>
-        <div class="week-row" data-lift="bench" data-week="8" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 8</span><span class="wsets">2 × 3</span><span class="wkg">107,5 kg</span></div>
-        <div class="week-row" data-lift="bench" data-week="9" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 9</span><span class="wsets">2 × 3</span><span class="wkg">107,5 kg</span></div>
-        <div class="week-row" data-lift="bench" data-week="10" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 10</span><span class="wsets">2 × 2</span><span class="wkg">112,5 kg</span></div>
-        <div class="week-row" data-lift="bench" data-week="11" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 11</span><span class="wsets">2 × 2</span><span class="wkg">115 kg</span></div>
-        <div class="week-row peak" data-lift="bench" data-week="12" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 12</span><span class="wsets">1 × 1</span><span class="wkg">117,5 kg ★</span></div>
+        <div class="week-row" data-lift="bench" data-week="1" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 1</span><span class="wsets">2 × 10</span><span class="wkg">72,5 kg</span></div>
+        <div class="week-row" data-lift="bench" data-week="2" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 2</span><span class="wsets">2 × 10</span><span class="wkg">77,5 kg</span></div>
+        <div class="week-row" data-lift="bench" data-week="3" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 3</span><span class="wsets">2 × 8</span><span class="wkg">82,5 kg</span></div>
+        <div class="week-row" data-lift="bench" data-week="4" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 4</span><span class="wsets">2 × 8</span><span class="wkg">87,5 kg</span></div>
+        <div class="week-row" data-lift="bench" data-week="5" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 5</span><span class="wsets">2 × 5</span><span class="wkg">92,5 kg</span></div>
+        <div class="week-row" data-lift="bench" data-week="6" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 6</span><span class="wsets">2 × 5</span><span class="wkg">97,5 kg</span></div>
+        <div class="week-row" data-lift="bench" data-week="7" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 7</span><span class="wsets">2 × 5</span><span class="wkg">102,5 kg</span></div>
+        <div class="week-row" data-lift="bench" data-week="8" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 8</span><span class="wsets">2 × 3</span><span class="wkg">107,5 kg</span></div>
+        <div class="week-row" data-lift="bench" data-week="9" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 9</span><span class="wsets">2 × 3</span><span class="wkg">107,5 kg</span></div>
+        <div class="week-row" data-lift="bench" data-week="10" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 10</span><span class="wsets">2 × 2</span><span class="wkg">112,5 kg</span></div>
+        <div class="week-row" data-lift="bench" data-week="11" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 11</span><span class="wsets">2 × 2</span><span class="wkg">115 kg</span></div>
+        <div class="week-row peak" data-lift="bench" data-week="12" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 12</span><span class="wsets">1 × 1</span><span class="wkg">117,5 kg ★</span></div>
       </div></div>
     </div>
     <div class="collapsible">
-      <div class="coll-header" onclick="toggleColl(this)"><span class="coll-title">Close-Grip (pauza)</span><span class="coll-arrow">▼</span></div>
+      <div class="coll-header" onclick="toggleColl(this)"><span class="coll-title">Close-Grip (paused)</span><span class="coll-arrow">▼</span></div>
       <div class="coll-body"><div class="week-table">
-        <div class="week-row" data-lift="closegrip" data-week="1" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 1</span><span class="wsets">2 × 10</span><span class="wkg">62,5 kg</span></div>
-        <div class="week-row" data-lift="closegrip" data-week="2" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 2</span><span class="wsets">2 × 10</span><span class="wkg">67,5 kg</span></div>
-        <div class="week-row" data-lift="closegrip" data-week="3" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 3</span><span class="wsets">2 × 8</span><span class="wkg">72,5 kg</span></div>
-        <div class="week-row" data-lift="closegrip" data-week="4" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 4</span><span class="wsets">2 × 8</span><span class="wkg">77,5 kg</span></div>
-        <div class="week-row" data-lift="closegrip" data-week="5" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 5</span><span class="wsets">2 × 5</span><span class="wkg">82,5 kg</span></div>
-        <div class="week-row" data-lift="closegrip" data-week="6" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 6</span><span class="wsets">2 × 5</span><span class="wkg">87,5 kg</span></div>
-        <div class="week-row" data-lift="closegrip" data-week="7" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 7</span><span class="wsets">2 × 5</span><span class="wkg">92,5 kg</span></div>
-        <div class="week-row" data-lift="closegrip" data-week="8" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 8</span><span class="wsets">2 × 3</span><span class="wkg">97,5 kg</span></div>
-        <div class="week-row" data-lift="closegrip" data-week="9" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 9</span><span class="wsets">2 × 3</span><span class="wkg">97,5 kg</span></div>
-        <div class="week-row" data-lift="closegrip" data-week="10" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 10</span><span class="wsets">2 × 2</span><span class="wkg">102,5 kg</span></div>
-        <div class="week-row" data-lift="closegrip" data-week="11" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 11</span><span class="wsets">2 × 2</span><span class="wkg">105 kg</span></div>
-        <div class="week-row peak" data-lift="closegrip" data-week="12" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 12</span><span class="wsets">1 × 1</span><span class="wkg">107,5 kg ★</span></div>
+        <div class="week-row" data-lift="closegrip" data-week="1" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 1</span><span class="wsets">2 × 10</span><span class="wkg">62,5 kg</span></div>
+        <div class="week-row" data-lift="closegrip" data-week="2" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 2</span><span class="wsets">2 × 10</span><span class="wkg">67,5 kg</span></div>
+        <div class="week-row" data-lift="closegrip" data-week="3" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 3</span><span class="wsets">2 × 8</span><span class="wkg">72,5 kg</span></div>
+        <div class="week-row" data-lift="closegrip" data-week="4" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 4</span><span class="wsets">2 × 8</span><span class="wkg">77,5 kg</span></div>
+        <div class="week-row" data-lift="closegrip" data-week="5" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 5</span><span class="wsets">2 × 5</span><span class="wkg">82,5 kg</span></div>
+        <div class="week-row" data-lift="closegrip" data-week="6" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 6</span><span class="wsets">2 × 5</span><span class="wkg">87,5 kg</span></div>
+        <div class="week-row" data-lift="closegrip" data-week="7" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 7</span><span class="wsets">2 × 5</span><span class="wkg">92,5 kg</span></div>
+        <div class="week-row" data-lift="closegrip" data-week="8" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 8</span><span class="wsets">2 × 3</span><span class="wkg">97,5 kg</span></div>
+        <div class="week-row" data-lift="closegrip" data-week="9" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 9</span><span class="wsets">2 × 3</span><span class="wkg">97,5 kg</span></div>
+        <div class="week-row" data-lift="closegrip" data-week="10" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 10</span><span class="wsets">2 × 2</span><span class="wkg">102,5 kg</span></div>
+        <div class="week-row" data-lift="closegrip" data-week="11" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 11</span><span class="wsets">2 × 2</span><span class="wkg">105 kg</span></div>
+        <div class="week-row peak" data-lift="closegrip" data-week="12" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 12</span><span class="wsets">1 × 1</span><span class="wkg">107,5 kg ★</span></div>
       </div></div>
     </div>
     <div class="collapsible">
       <div class="coll-header" onclick="toggleColl(this)"><span class="coll-title">Incline Bench</span><span class="coll-arrow">▼</span></div>
       <div class="coll-body"><div class="week-table">
-        <div class="week-row" data-lift="incline" data-week="1" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 1</span><span class="wsets">2 × 10</span><span class="wkg">47,5 kg</span></div>
-        <div class="week-row" data-lift="incline" data-week="2" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 2</span><span class="wsets">2 × 10</span><span class="wkg">52,5 kg</span></div>
-        <div class="week-row" data-lift="incline" data-week="3" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 3</span><span class="wsets">2 × 8</span><span class="wkg">57,5 kg</span></div>
-        <div class="week-row" data-lift="incline" data-week="4" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 4</span><span class="wsets">2 × 8</span><span class="wkg">62,5 kg</span></div>
-        <div class="week-row" data-lift="incline" data-week="5" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 5</span><span class="wsets">2 × 5</span><span class="wkg">67,5 kg</span></div>
-        <div class="week-row" data-lift="incline" data-week="6" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 6</span><span class="wsets">2 × 5</span><span class="wkg">72,5 kg</span></div>
-        <div class="week-row" data-lift="incline" data-week="7" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 7</span><span class="wsets">2 × 5</span><span class="wkg">77,5 kg</span></div>
-        <div class="week-row" data-lift="incline" data-week="8" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 8</span><span class="wsets">2 × 3</span><span class="wkg">82,5 kg</span></div>
-        <div class="week-row" data-lift="incline" data-week="9" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 9</span><span class="wsets">2 × 3</span><span class="wkg">82,5 kg</span></div>
-        <div class="week-row" data-lift="incline" data-week="10" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 10</span><span class="wsets">2 × 2</span><span class="wkg">87,5 kg</span></div>
-        <div class="week-row" data-lift="incline" data-week="11" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 11</span><span class="wsets">2 × 2</span><span class="wkg">90 kg</span></div>
-        <div class="week-row peak" data-lift="incline" data-week="12" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 12</span><span class="wsets">1 × 1</span><span class="wkg">92,5 kg ★</span></div>
+        <div class="week-row" data-lift="incline" data-week="1" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 1</span><span class="wsets">2 × 10</span><span class="wkg">47,5 kg</span></div>
+        <div class="week-row" data-lift="incline" data-week="2" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 2</span><span class="wsets">2 × 10</span><span class="wkg">52,5 kg</span></div>
+        <div class="week-row" data-lift="incline" data-week="3" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 3</span><span class="wsets">2 × 8</span><span class="wkg">57,5 kg</span></div>
+        <div class="week-row" data-lift="incline" data-week="4" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 4</span><span class="wsets">2 × 8</span><span class="wkg">62,5 kg</span></div>
+        <div class="week-row" data-lift="incline" data-week="5" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 5</span><span class="wsets">2 × 5</span><span class="wkg">67,5 kg</span></div>
+        <div class="week-row" data-lift="incline" data-week="6" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 6</span><span class="wsets">2 × 5</span><span class="wkg">72,5 kg</span></div>
+        <div class="week-row" data-lift="incline" data-week="7" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 7</span><span class="wsets">2 × 5</span><span class="wkg">77,5 kg</span></div>
+        <div class="week-row" data-lift="incline" data-week="8" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 8</span><span class="wsets">2 × 3</span><span class="wkg">82,5 kg</span></div>
+        <div class="week-row" data-lift="incline" data-week="9" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 9</span><span class="wsets">2 × 3</span><span class="wkg">82,5 kg</span></div>
+        <div class="week-row" data-lift="incline" data-week="10" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 10</span><span class="wsets">2 × 2</span><span class="wkg">87,5 kg</span></div>
+        <div class="week-row" data-lift="incline" data-week="11" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 11</span><span class="wsets">2 × 2</span><span class="wkg">90 kg</span></div>
+        <div class="week-row peak" data-lift="incline" data-week="12" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 12</span><span class="wsets">1 × 1</span><span class="wkg">92,5 kg ★</span></div>
       </div></div>
     </div>
-    <div class="slabel">Akcesoria</div>
+    <div class="slabel">Accessories</div>
     <div class="acc-list">
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Wiosłowanie sztangą</div><div class="acc-tags"><span class="tag">4 × 10</span><span class="tag rest">2 min</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="wt-1" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="notatka" data-key="note-wt-1" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Pulldown</div><div class="acc-tags"><span class="tag">4 × 12</span><span class="tag rest">2 min</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="wt-2" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="notatka" data-key="note-wt-2" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Skull Crushers</div><div class="acc-tags"><span class="tag">3 × 12</span><span class="tag rest">90 sek</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="wt-3" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="notatka" data-key="note-wt-3" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Tricep Pushdown</div><div class="acc-tags"><span class="tag">3 × 15</span><span class="tag rest">60 sek</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="wt-4" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="notatka" data-key="note-wt-4" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Barbell Row</div><div class="acc-tags"><span class="tag">4 × 8</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="wt-1" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-wt-1" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Pulldown</div><div class="acc-tags"><span class="tag">4 × 10</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="wt-2" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-wt-2" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Side Raise</div><div class="acc-tags"><span class="tag">2 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="wt-3" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-wt-3" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Tricep Extension</div><div class="acc-tags"><span class="tag">2 × 8</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="wt-4" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-wt-4" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Bicep Curl</div><div class="acc-tags"><span class="tag">2 × 8</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="wt-5" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-wt-5" oninput="saveNote(this)"></textarea></div></div>
     </div>
   </div>
 
-  <!-- CZWARTEK -->
+  <!-- THURSDAY -->
   <div class="section" id="tab-czw">
     <div class="day-header" style="border-left-color:var(--dead)">
-      <div class="day-sub">Czwartek</div>
+      <div class="day-sub">Thursday</div>
       <div class="day-name" style="color:var(--dead)">Deadlift</div>
       <div class="day-type" style="color:var(--dead)">Lower</div>
     </div>
-    <div class="slabel">Główna praca</div>
+    <div class="slabel">Main Work</div>
     <div class="week-table">
-      <div class="week-row" data-lift="dead" data-week="1" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 1</span><span class="wsets">1 × 8 ⚡</span><span class="wkg">175 kg</span></div>
-      <div class="week-row" data-lift="dead" data-week="2" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 2</span><span class="wsets">2 × 5</span><span class="wkg">182,5 kg</span></div>
-      <div class="week-row" data-lift="dead" data-week="3" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 3</span><span class="wsets">2 × 5</span><span class="wkg">190 kg</span></div>
-      <div class="week-row" data-lift="dead" data-week="4" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 4</span><span class="wsets">2 × 5</span><span class="wkg">197,5 kg</span></div>
-      <div class="week-row" data-lift="dead" data-week="5" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 5</span><span class="wsets">2 × 5</span><span class="wkg">205 kg</span></div>
-      <div class="week-row" data-lift="dead" data-week="6" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 6</span><span class="wsets">2 × 5</span><span class="wkg">212,5 kg</span></div>
-      <div class="week-row" data-lift="dead" data-week="7" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 7</span><span class="wsets">2 × 3</span><span class="wkg">220 kg</span></div>
-      <div class="week-row" data-lift="dead" data-week="8" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 8</span><span class="wsets">2 × 3</span><span class="wkg">227,5 kg</span></div>
-      <div class="week-row" data-lift="dead" data-week="9" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 9</span><span class="wsets">2 × 3</span><span class="wkg">235 kg</span></div>
-      <div class="week-row" data-lift="dead" data-week="10" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 10</span><span class="wsets">2 × 2</span><span class="wkg">242,5 kg</span></div>
-      <div class="week-row" data-lift="dead" data-week="11" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 11</span><span class="wsets">2 × 2</span><span class="wkg">252,5 kg</span></div>
-      <div class="week-row peak" data-lift="dead" data-week="12" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Tyg 12</span><span class="wsets">1 × 1</span><span class="wkg">270 kg ★</span></div>
+      <div class="week-row" data-lift="dead" data-week="1" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 1</span><span class="wsets">1 × 8</span><span class="wkg">175 kg</span></div>
+      <div class="week-row" data-lift="dead" data-week="2" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 2</span><span class="wsets">2 × 5</span><span class="wkg">182,5 kg</span></div>
+      <div class="week-row" data-lift="dead" data-week="3" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 3</span><span class="wsets">2 × 5</span><span class="wkg">190 kg</span></div>
+      <div class="week-row" data-lift="dead" data-week="4" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 4</span><span class="wsets">2 × 5</span><span class="wkg">197,5 kg</span></div>
+      <div class="week-row" data-lift="dead" data-week="5" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 5</span><span class="wsets">2 × 5</span><span class="wkg">205 kg</span></div>
+      <div class="week-row" data-lift="dead" data-week="6" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 6</span><span class="wsets">2 × 5</span><span class="wkg">212,5 kg</span></div>
+      <div class="week-row" data-lift="dead" data-week="7" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 7</span><span class="wsets">2 × 3</span><span class="wkg">220 kg</span></div>
+      <div class="week-row" data-lift="dead" data-week="8" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 8</span><span class="wsets">2 × 3</span><span class="wkg">227,5 kg</span></div>
+      <div class="week-row" data-lift="dead" data-week="9" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 9</span><span class="wsets">2 × 3</span><span class="wkg">235 kg</span></div>
+      <div class="week-row" data-lift="dead" data-week="10" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 10</span><span class="wsets">2 × 2</span><span class="wkg">242,5 kg</span></div>
+      <div class="week-row" data-lift="dead" data-week="11" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 11</span><span class="wsets">2 × 2</span><span class="wkg">252,5 kg</span></div>
+      <div class="week-row peak" data-lift="dead" data-week="12" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 12</span><span class="wsets">1 × 1</span><span class="wkg">270 kg ★</span></div>
     </div>
-    <div class="note-box">⚡ Tydzień 1: tylko 1 seria — lekko, wejście w rytm cyklu.</div>
-    <div class="slabel">Akcesoria</div>
+    <div class="slabel">Accessories</div>
     <div class="acc-list">
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Hack Squat</div><div class="acc-tags"><span class="tag">3 × 12</span><span class="tag rest">2 min</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="czw-1" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="notatka" data-key="note-czw-1" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Leg Curl</div><div class="acc-tags"><span class="tag">3 × 12</span><span class="tag rest">90 sek</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="czw-2" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="notatka" data-key="note-czw-2" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Shrugi</div><div class="acc-tags"><span class="tag">3 × 12</span><span class="tag rest">90 sek</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="czw-3" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="notatka" data-key="note-czw-3" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Łydki</div><div class="acc-tags"><span class="tag">3 × 20</span><span class="tag rest">60 sek</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="czw-4" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="notatka" data-key="note-czw-4" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Hack Squat</div><div class="acc-tags"><span class="tag">2 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="czw-1" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-czw-1" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Leg Curl</div><div class="acc-tags"><span class="tag">2 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="czw-2" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-czw-2" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Shrugs</div><div class="acc-tags"><span class="tag">3 × 12–15</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="czw-3" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-czw-3" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Calf Raises</div><div class="acc-tags"><span class="tag">3 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="czw-4" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-czw-4" oninput="saveNote(this)"></textarea></div></div>
     </div>
   </div>
 
-  <!-- PIĄTEK -->
+  <!-- FRIDAY -->
   <div class="section" id="tab-pt">
     <div class="day-header" style="border-left-color:var(--light)">
-      <div class="day-sub">Piątek</div>
-      <div class="day-name" style="color:var(--light)">Upper Lekki</div>
-      <div class="day-type" style="color:var(--light)">Upper · Regeneracja</div>
+      <div class="day-sub">Friday</div>
+      <div class="day-name" style="color:var(--light)">Upper Light</div>
+      <div class="day-type" style="color:var(--light)">Upper · Recovery</div>
     </div>
-    <div class="slabel">Ćwiczenia</div>
+    <div class="slabel">Exercises</div>
     <div class="acc-list">
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Lekki Bench Press</div><div class="acc-tags"><span class="tag">3 × 10</span><span class="tag rest">@ 60–70%</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pt-1" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="notatka" data-key="note-pt-1" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">OHP</div><div class="acc-tags"><span class="tag">3 × 12</span><span class="tag rest">lekko</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pt-2" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="notatka" data-key="note-pt-2" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Machine Flye</div><div class="acc-tags"><span class="tag">3 × 15</span><span class="tag rest">60 sek</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pt-3" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="notatka" data-key="note-pt-3" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Seated Cable Row</div><div class="acc-tags"><span class="tag">4 × 10</span><span class="tag rest">2 min</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pt-4" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="notatka" data-key="note-pt-4" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Face Pull</div><div class="acc-tags"><span class="tag">3 × 15</span><span class="tag rest">60 sek</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pt-5" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="notatka" data-key="note-pt-5" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Rear Delt Raise</div><div class="acc-tags"><span class="tag">3 × 15</span><span class="tag rest">60 sek</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pt-6" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="notatka" data-key="note-pt-6" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Front Raise</div><div class="acc-tags"><span class="tag">3 × 12</span><span class="tag rest">60 sek</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pt-7" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="notatka" data-key="note-pt-7" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Side Raise</div><div class="acc-tags"><span class="tag">3 × 15</span><span class="tag rest">60 sek</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pt-8" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="notatka" data-key="note-pt-8" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Bicep Curl</div><div class="acc-tags"><span class="tag">3 × 15</span><span class="tag rest">60 sek</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pt-9" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="notatka" data-key="note-pt-9" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Tricep Pushdown</div><div class="acc-tags"><span class="tag">3 × 15</span><span class="tag rest">pompujące</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pt-10" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="notatka" data-key="note-pt-10" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Light Bench Press</div><div class="acc-tags"><span class="tag">2 × 10</span><span class="tag rest">@ 60–70%</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pt-1" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pt-1" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">OHP</div><div class="acc-tags"><span class="tag">1 × 8</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pt-2" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pt-2" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Machine Flye</div><div class="acc-tags"><span class="tag">2 × 10–15</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pt-3" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pt-3" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Seated Cable Row</div><div class="acc-tags"><span class="tag">2 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pt-4" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pt-4" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Face Pull</div><div class="acc-tags"><span class="tag">2 × 12–15</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pt-5" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pt-5" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Front Raise</div><div class="acc-tags"><span class="tag">2 × 12–15</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pt-6" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pt-6" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Side Raise</div><div class="acc-tags"><span class="tag">2 × 12–15</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pt-7" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pt-7" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Tricep Pushdown</div><div class="acc-tags"><span class="tag">1 × 15</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pt-8" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pt-8" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Bicep Curl</div><div class="acc-tags"><span class="tag">1 × 15</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pt-9" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pt-9" oninput="saveNote(this)"></textarea></div></div>
     </div>
   </div>
 
-  <!-- ZASADY -->
+  <!-- RULES -->
   <div class="section" id="tab-rules">
     <div class="day-header" style="border-left-color:var(--accent)">
-      <div class="day-sub">Instrukcja</div>
-      <div class="day-name" style="color:var(--accent)">Zasady</div>
+      <div class="day-sub">Guide</div>
+      <div class="day-name" style="color:var(--accent)">Rules</div>
     </div>
-    <div class="slabel">Struktura tygodnia</div>
+    <div class="slabel">Weekly Structure</div>
     <div class="rest-table">
-      <div class="rest-row"><span>Poniedziałek</span><span style="color:var(--squat)">Lower · Squat</span></div>
-      <div class="rest-row"><span>Wtorek</span><span style="color:var(--bench)">Upper · Bench</span></div>
-      <div class="rest-row"><span>Środa</span><span style="color:var(--muted)">— odpoczynek —</span></div>
-      <div class="rest-row"><span>Czwartek</span><span style="color:var(--dead)">Lower · Deadlift</span></div>
-      <div class="rest-row"><span>Piątek</span><span style="color:var(--light)">Upper · Lekki</span></div>
-      <div class="rest-row"><span>Sobota / Niedziela</span><span style="color:var(--muted)">— odpoczynek —</span></div>
+      <div class="rest-row"><span>Monday</span><span style="color:var(--squat)">Lower · Squat</span></div>
+      <div class="rest-row"><span>Tuesday</span><span style="color:var(--bench)">Upper · Bench</span></div>
+      <div class="rest-row"><span>Wednesday</span><span style="color:var(--muted)">— rest —</span></div>
+      <div class="rest-row"><span>Thursday</span><span style="color:var(--dead)">Lower · Deadlift</span></div>
+      <div class="rest-row"><span>Friday</span><span style="color:var(--light)">Upper · Light</span></div>
+      <div class="rest-row"><span>Saturday / Sunday</span><span style="color:var(--muted)">— rest —</span></div>
     </div>
-    <div class="slabel">Przerwy między seriami</div>
+    <div class="slabel">Rest Between Sets</div>
     <div class="rest-table">
-      <div class="rest-row"><span>10 powtórzeń</span><span>3–4 min</span></div>
-      <div class="rest-row"><span>8 powtórzeń</span><span>3–4 min</span></div>
-      <div class="rest-row"><span>5 powtórzeń</span><span>4–5 min</span></div>
-      <div class="rest-row"><span>3 powtórzenia</span><span>5 min</span></div>
-      <div class="rest-row"><span>2 powtórzenia</span><span>5–6 min</span></div>
-      <div class="rest-row"><span>1 powtórzenie (peak)</span><span>6–8 min</span></div>
+      <div class="rest-row"><span>10 reps</span><span>3–4 min</span></div>
+      <div class="rest-row"><span>8 reps</span><span>3–4 min</span></div>
+      <div class="rest-row"><span>5 reps</span><span>4–5 min</span></div>
+      <div class="rest-row"><span>3 reps</span><span>5 min</span></div>
+      <div class="rest-row"><span>2 reps</span><span>5–6 min</span></div>
+      <div class="rest-row"><span>1 rep (peak)</span><span>6–8 min</span></div>
     </div>
-    <div class="slabel">Kluczowe zasady</div>
-    <div class="rule-card"><div class="rule-title" style="color:var(--accent)">Rozgrzewka</div><div class="rule-body">Zawsze wchodź stopniowo: 50% → 65% → 80% → ciężar roboczy.</div></div>
-    <div class="rule-card"><div class="rule-title" style="color:#ffa040">Tydzień 12 — Peak</div><div class="rule-body">Najpierw zaplanowany ciężar. Jeśli singiel pójdzie lekko — bierzesz jeszcze raz z +5–10 kg. Nie ryzykuj wcześniej.</div></div>
-    <div class="rule-card"><div class="rule-title" style="color:var(--squat)">Po cyklu — Deload</div><div class="rule-body">1–3 tygodnie na 50–60% ciężarów. Potem nowy cykl z wyższym 1RM jako punktem startowym.</div></div>
-    <div class="rule-card"><div class="rule-title" style="color:var(--dead)">Akcesoria</div><div class="rule-body">Umiarkowane ciężary przez cały cykl. Mają wspierać lifty, nie generować dodatkowego zmęczenia.</div></div>
-    <div class="rule-card"><div class="rule-title" style="color:var(--light)">Progresja</div><div class="rule-body">+7,5 kg/tyg na squat i deadlift, +5 kg/tyg na bench. Trzymaj się planu nawet jeśli czujesz się mocno.</div></div>
+    <div class="slabel">Key Rules</div>
+    <div class="rule-card"><div class="rule-title" style="color:var(--accent)">Warm-up</div><div class="rule-body">Always build up gradually: 50% → 65% → 80% → working weight.</div></div>
+    <div class="rule-card"><div class="rule-title" style="color:#ffa040">Week 12 — Peak</div><div class="rule-body">Hit the planned weight first. If the single feels easy — take another attempt with +5–10 kg. Don't risk it earlier in the cycle.</div></div>
+    <div class="rule-card"><div class="rule-title" style="color:var(--squat)">After the Cycle — Deload</div><div class="rule-body">1–3 weeks at 50–60% of working weights. Then start a new cycle with your new 1RM as the baseline.</div></div>
+    <div class="rule-card"><div class="rule-title" style="color:var(--dead)">Accessories</div><div class="rule-body">Keep accessory weights moderate throughout the cycle. They support the main lifts — don't let them generate extra fatigue.</div></div>
+    <div class="rule-card"><div class="rule-title" style="color:var(--light)">Progression</div><div class="rule-body">+7.5 kg/week on squat and deadlift, +5 kg/week on bench. Stick to the plan even when you feel strong.</div></div>
   </div>
 
 </div>
