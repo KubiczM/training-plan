@@ -87,67 +87,30 @@
   .rest-row { display:flex; justify-content:space-between; padding:11px 14px; border-bottom:1px solid var(--darker); font-family:monospace; font-size:12px; }
   .rest-row:last-child { border-bottom:none; }
   .rest-row span:last-child { color:var(--accent); }
+  .divider { border:none; border-top:1px solid var(--border); margin:14px 0; }
 </style>
 </head>
 <body>
 
 <div class="hero">
   <div class="hero-title">Training <span>Plan</span></div>
-  <div class="records">
-    <div class="pill"><span class="dot" style="background:var(--squat)"></span>Squat 205 kg</div>
-    <div class="pill"><span class="dot" style="background:var(--bench)"></span>Bench 107,5 kg</div>
-    <div class="pill"><span class="dot" style="background:var(--dead)"></span>DL 260 kg</div>
-  </div>
 </div>
 
 <nav class="nav">
-  <button class="nav-btn active" style="border-bottom-color:var(--squat)" data-tab="pon" onclick="switchTab('pon')">MON</button>
-  <button class="nav-btn" data-tab="wt" onclick="switchTab('wt')">TUE</button>
-  <button class="nav-btn" data-tab="czw" onclick="switchTab('czw')">THU</button>
+  <button class="nav-btn active" style="border-bottom-color:var(--bench)" data-tab="pon" onclick="switchTab('pon')">MON</button>
+  <button class="nav-btn" data-tab="sr" onclick="switchTab('sr')">WED</button>
   <button class="nav-btn" data-tab="pt" onclick="switchTab('pt')">FRI</button>
   <button class="nav-btn" data-tab="rules" onclick="switchTab('rules')">☰</button>
 </nav>
 
 <div class="content">
 
-  <!-- MONDAY -->
+  <!-- MONDAY — Bench -->
   <div class="section active" id="tab-pon">
-    <div class="day-header" style="border-left-color:var(--squat)">
-      <div class="day-sub">Monday</div>
-      <div class="day-name" style="color:var(--squat)">Squat</div>
-      <div class="day-type" style="color:var(--squat)">Lower</div>
-    </div>
-    <div class="slabel">Main Work</div>
-    <div class="week-table">
-      <div class="week-row" data-lift="squat" data-week="1" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 1</span><span class="wsets">2 × 10</span><span class="wkg">137,5 kg</span></div>
-      <div class="week-row" data-lift="squat" data-week="2" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 2</span><span class="wsets">2 × 10</span><span class="wkg">145 kg</span></div>
-      <div class="week-row" data-lift="squat" data-week="3" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 3</span><span class="wsets">2 × 8</span><span class="wkg">152,5 kg</span></div>
-      <div class="week-row" data-lift="squat" data-week="4" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 4</span><span class="wsets">2 × 8</span><span class="wkg">160 kg</span></div>
-      <div class="week-row" data-lift="squat" data-week="5" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 5</span><span class="wsets">2 × 5</span><span class="wkg">167,5 kg</span></div>
-      <div class="week-row" data-lift="squat" data-week="6" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 6</span><span class="wsets">2 × 5</span><span class="wkg">175 kg</span></div>
-      <div class="week-row" data-lift="squat" data-week="7" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 7</span><span class="wsets">2 × 5</span><span class="wkg">182,5 kg</span></div>
-      <div class="week-row" data-lift="squat" data-week="8" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 8</span><span class="wsets">2 × 3</span><span class="wkg">190 kg</span></div>
-      <div class="week-row" data-lift="squat" data-week="9" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 9</span><span class="wsets">2 × 3</span><span class="wkg">197,5 kg</span></div>
-      <div class="week-row" data-lift="squat" data-week="10" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 10</span><span class="wsets">2 × 2</span><span class="wkg">205 kg</span></div>
-      <div class="week-row" data-lift="squat" data-week="11" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 11</span><span class="wsets">2 × 2</span><span class="wkg">212,5 kg</span></div>
-      <div class="week-row peak" data-lift="squat" data-week="12" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 12</span><span class="wsets">1 × 1</span><span class="wkg">215 kg ★</span></div>
-    </div>
-    <div class="slabel">Accessories</div>
-    <div class="acc-list">
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Leg Press</div><div class="acc-tags"><span class="tag">3 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pon-1" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pon-1" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Leg Curl</div><div class="acc-tags"><span class="tag">3 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pon-2" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pon-2" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Hip Thrust</div><div class="acc-tags"><span class="tag">3 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pon-3" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pon-3" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Leg Extension</div><div class="acc-tags"><span class="tag">2 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pon-4" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pon-4" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Calf Raises</div><div class="acc-tags"><span class="tag">3 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pon-5" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pon-5" oninput="saveNote(this)"></textarea></div></div>
-    </div>
-  </div>
-
-  <!-- TUESDAY -->
-  <div class="section" id="tab-wt">
     <div class="day-header" style="border-left-color:var(--bench)">
-      <div class="day-sub">Tuesday</div>
+      <div class="day-sub">Monday</div>
       <div class="day-name" style="color:var(--bench)">Bench Press</div>
-      <div class="day-type" style="color:var(--bench)">Upper</div>
+      <div class="day-type" style="color:var(--bench)">Upper · Heavy</div>
     </div>
     <div class="slabel">Main Work</div>
     <div class="collapsible open">
@@ -203,20 +166,52 @@
     </div>
     <div class="slabel">Accessories</div>
     <div class="acc-list">
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Barbell Row</div><div class="acc-tags"><span class="tag">4 × 8</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="wt-1" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-wt-1" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Pulldown</div><div class="acc-tags"><span class="tag">4 × 10</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="wt-2" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-wt-2" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Side Raise</div><div class="acc-tags"><span class="tag">3 × 12–15</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="wt-3" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-wt-3" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Tricep Extension</div><div class="acc-tags"><span class="tag">3 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="wt-4" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-wt-4" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Bicep Curl</div><div class="acc-tags"><span class="tag">3 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="wt-5" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-wt-5" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Barbell Row</div><div class="acc-tags"><span class="tag">4 × 8</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pon-1" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pon-1" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Pulldown</div><div class="acc-tags"><span class="tag">4 × 10</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pon-2" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pon-2" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Side Raise</div><div class="acc-tags"><span class="tag">3 × 12–15</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pon-3" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pon-3" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Tricep Extension</div><div class="acc-tags"><span class="tag">3 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pon-4" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pon-4" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Bicep Curl</div><div class="acc-tags"><span class="tag">3 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pon-5" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pon-5" oninput="saveNote(this)"></textarea></div></div>
     </div>
   </div>
 
-  <!-- THURSDAY -->
-  <div class="section" id="tab-czw">
+  <!-- WEDNESDAY — Squat -->
+  <div class="section" id="tab-sr">
+    <div class="day-header" style="border-left-color:var(--squat)">
+      <div class="day-sub">Wednesday</div>
+      <div class="day-name" style="color:var(--squat)">Back Squat</div>
+      <div class="day-type" style="color:var(--squat)">Lower · Heavy</div>
+    </div>
+    <div class="slabel">Main Work</div>
+    <div class="week-table">
+      <div class="week-row" data-lift="squat" data-week="1" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 1</span><span class="wsets">2 × 10</span><span class="wkg">137,5 kg</span></div>
+      <div class="week-row" data-lift="squat" data-week="2" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 2</span><span class="wsets">2 × 10</span><span class="wkg">145 kg</span></div>
+      <div class="week-row" data-lift="squat" data-week="3" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 3</span><span class="wsets">2 × 8</span><span class="wkg">152,5 kg</span></div>
+      <div class="week-row" data-lift="squat" data-week="4" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 4</span><span class="wsets">2 × 8</span><span class="wkg">160 kg</span></div>
+      <div class="week-row" data-lift="squat" data-week="5" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 5</span><span class="wsets">2 × 5</span><span class="wkg">167,5 kg</span></div>
+      <div class="week-row" data-lift="squat" data-week="6" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 6</span><span class="wsets">2 × 5</span><span class="wkg">175 kg</span></div>
+      <div class="week-row" data-lift="squat" data-week="7" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 7</span><span class="wsets">2 × 5</span><span class="wkg">182,5 kg</span></div>
+      <div class="week-row" data-lift="squat" data-week="8" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 8</span><span class="wsets">2 × 3</span><span class="wkg">190 kg</span></div>
+      <div class="week-row" data-lift="squat" data-week="9" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 9</span><span class="wsets">2 × 3</span><span class="wkg">197,5 kg</span></div>
+      <div class="week-row" data-lift="squat" data-week="10" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 10</span><span class="wsets">2 × 2</span><span class="wkg">205 kg</span></div>
+      <div class="week-row" data-lift="squat" data-week="11" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 11</span><span class="wsets">2 × 2</span><span class="wkg">212,5 kg</span></div>
+      <div class="week-row peak" data-lift="squat" data-week="12" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 12</span><span class="wsets">1 × 1</span><span class="wkg">215 kg ★</span></div>
+    </div>
+    <div class="slabel">Accessories</div>
+    <div class="acc-list">
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Leg Press</div><div class="acc-tags"><span class="tag">3 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="sr-1" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-sr-1" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Leg Curl</div><div class="acc-tags"><span class="tag">3 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="sr-2" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-sr-2" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Hip Thrust</div><div class="acc-tags"><span class="tag">3 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="sr-3" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-sr-3" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Leg Extension</div><div class="acc-tags"><span class="tag">2 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="sr-4" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-sr-4" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Calf Raises</div><div class="acc-tags"><span class="tag">3 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="sr-5" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-sr-5" oninput="saveNote(this)"></textarea></div></div>
+    </div>
+  </div>
+
+  <!-- FRIDAY — Deadlift + Upper -->
+  <div class="section" id="tab-pt">
     <div class="day-header" style="border-left-color:var(--dead)">
-      <div class="day-sub">Thursday</div>
+      <div class="day-sub">Friday</div>
       <div class="day-name" style="color:var(--dead)">Deadlift</div>
-      <div class="day-type" style="color:var(--dead)">Lower</div>
+      <div class="day-type" style="color:var(--dead)">Lower + Upper Supplement</div>
     </div>
     <div class="slabel">Main Work</div>
     <div class="week-table">
@@ -233,34 +228,18 @@
       <div class="week-row" data-lift="dead" data-week="11" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 11</span><span class="wsets">2 × 2</span><span class="wkg">252,5 kg</span></div>
       <div class="week-row peak" data-lift="dead" data-week="12" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 12</span><span class="wsets">1 × 1</span><span class="wkg">270 kg ★</span></div>
     </div>
-    <div class="slabel">Accessories</div>
+    <div class="slabel">Accessories — Lower</div>
     <div class="acc-list">
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Hack Squat</div><div class="acc-tags"><span class="tag">2 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="czw-1" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-czw-1" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Leg Curl</div><div class="acc-tags"><span class="tag">3 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="czw-2" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-czw-2" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Hip Extension</div><div class="acc-tags"><span class="tag">3 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="czw-3" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-czw-3" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Shrugs</div><div class="acc-tags"><span class="tag">3 × 12–15</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="czw-4" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-czw-4" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Calf Raises</div><div class="acc-tags"><span class="tag">3 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="czw-5" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-czw-5" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Hack Squat</div><div class="acc-tags"><span class="tag">2 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pt-1" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pt-1" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Leg Curl</div><div class="acc-tags"><span class="tag">3 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pt-2" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pt-2" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Calf Raises</div><div class="acc-tags"><span class="tag">3 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pt-3" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pt-3" oninput="saveNote(this)"></textarea></div></div>
     </div>
-  </div>
-
-  <!-- FRIDAY -->
-  <div class="section" id="tab-pt">
-    <div class="day-header" style="border-left-color:var(--light)">
-      <div class="day-sub">Friday</div>
-      <div class="day-name" style="color:var(--light)">Upper Light</div>
-      <div class="day-type" style="color:var(--light)">Upper · Recovery</div>
-    </div>
-    <div class="slabel">Exercises</div>
+    <div class="slabel">Accessories — Upper</div>
     <div class="acc-list">
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Light Bench Press</div><div class="acc-tags"><span class="tag">2 × 10</span><span class="tag rest">@ 60–70%</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pt-1" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pt-1" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">OHP</div><div class="acc-tags"><span class="tag">2 × 10</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pt-2" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pt-2" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Machine Flye</div><div class="acc-tags"><span class="tag">2 × 10–15</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pt-3" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pt-3" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Seated Cable Row</div><div class="acc-tags"><span class="tag">3 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pt-4" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pt-4" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Face Pull</div><div class="acc-tags"><span class="tag">2 × 12–15</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pt-5" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pt-5" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Front Raise</div><div class="acc-tags"><span class="tag">2 × 12–15</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pt-6" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pt-6" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Side Raise</div><div class="acc-tags"><span class="tag">2 × 12–15</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pt-7" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pt-7" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Tricep Pushdown</div><div class="acc-tags"><span class="tag">2 × 15</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pt-8" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pt-8" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Bicep Curl</div><div class="acc-tags"><span class="tag">2 × 15</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pt-9" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pt-9" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Machine Flye</div><div class="acc-tags"><span class="tag">2 × 12–15</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pt-4" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pt-4" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">OHP</div><div class="acc-tags"><span class="tag">2 × 10</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pt-5" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pt-5" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Seated Cable Row</div><div class="acc-tags"><span class="tag">3 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pt-6" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pt-6" oninput="saveNote(this)"></textarea></div></div>
+      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Face Pull</div><div class="acc-tags"><span class="tag">2 × 15</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pt-7" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pt-7" oninput="saveNote(this)"></textarea></div></div>
     </div>
   </div>
 
@@ -272,11 +251,11 @@
     </div>
     <div class="slabel">Weekly Structure</div>
     <div class="rest-table">
-      <div class="rest-row"><span>Monday</span><span style="color:var(--squat)">Lower · Squat</span></div>
-      <div class="rest-row"><span>Tuesday</span><span style="color:var(--bench)">Upper · Bench</span></div>
-      <div class="rest-row"><span>Wednesday</span><span style="color:var(--muted)">— rest —</span></div>
-      <div class="rest-row"><span>Thursday</span><span style="color:var(--dead)">Lower · Deadlift</span></div>
-      <div class="rest-row"><span>Friday</span><span style="color:var(--light)">Upper · Light</span></div>
+      <div class="rest-row"><span>Monday</span><span style="color:var(--bench)">Upper · Bench Heavy</span></div>
+      <div class="rest-row"><span>Tuesday</span><span style="color:#f97316">Boks</span></div>
+      <div class="rest-row"><span>Wednesday</span><span style="color:var(--squat)">Lower · Squat Heavy</span></div>
+      <div class="rest-row"><span>Thursday</span><span style="color:#f97316">Boks</span></div>
+      <div class="rest-row"><span>Friday</span><span style="color:var(--dead)">Lower · Deadlift + Upper</span></div>
       <div class="rest-row"><span>Saturday / Sunday</span><span style="color:var(--muted)">— rest —</span></div>
     </div>
     <div class="slabel">Rest Between Sets</div>
@@ -299,7 +278,7 @@
 </div>
 
 <script>
-  const TAB_COLORS = { pon:'var(--squat)', wt:'var(--bench)', czw:'var(--dead)', pt:'var(--light)', rules:'var(--accent)' };
+  const TAB_COLORS = { pon:'var(--bench)', sr:'var(--squat)', pt:'var(--dead)', rules:'var(--accent)' };
 
   function switchTab(id) {
     document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
