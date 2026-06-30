@@ -60,19 +60,17 @@
   .collapsible.open .coll-body { display:block; }
 
   .acc-list { background:var(--card); border:1px solid var(--border); border-radius:12px; overflow:hidden; }
-  .acc-item { border-bottom:1px solid var(--darker); }
+  .acc-item { border-bottom:1px solid var(--darker); padding:11px 14px; }
   .acc-item:last-child { border-bottom:none; }
-  .acc-top { display:flex; align-items:center; gap:8px; padding:11px 14px 6px; }
-  .acc-info { flex:1; min-width:0; }
-  .acc-name { font-size:13px; color:var(--text); }
-  .acc-tags { display:flex; gap:5px; margin-top:3px; flex-wrap:wrap; }
-  .tag { font-family:monospace; font-size:10px; background:#252525; border:1px solid var(--border); border-radius:5px; padding:2px 7px; color:#bbb; }
-  .tag.rest { background:#1e1e1e; color:var(--muted); }
+  .acc-top-row { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
+  .acc-select-wrap { flex:1; min-width:0; }
+  .acc-select { width:100%; background:#1f1f1f; border:1px solid var(--border); border-radius:8px; color:var(--text); font-size:13px; padding:7px 10px; outline:none; appearance:none; -webkit-appearance:none; background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6'><path d='M0 0L5 6L10 0' fill='none' stroke='%23888' stroke-width='1.5'/></svg>"); background-repeat:no-repeat; background-position:right 10px center; padding-right:26px; }
+  .acc-select:focus { border-color:var(--accent); }
+  .acc-tag-static { font-family:monospace; font-size:10px; background:#252525; border:1px solid var(--border); border-radius:5px; padding:4px 8px; color:#bbb; white-space:nowrap; flex-shrink:0; }
   .acc-input { width:60px; padding:6px; background:#252525; border:1px solid var(--border); border-radius:8px; color:var(--muted); font-family:monospace; font-size:13px; text-align:center; outline:none; flex-shrink:0; transition:border-color .15s, color .15s; }
   .acc-input:focus { border-color:var(--accent); }
   .acc-input.has-value { border-color:var(--accent); color:var(--accent); }
-  .acc-note-wrap { padding:0 14px 10px; }
-  .acc-note { width:100%; background:#111; border:1px solid #1e1e1e; border-radius:8px; color:#777; font-size:12px; font-family:system-ui,sans-serif; padding:7px 10px; outline:none; resize:none; line-height:1.5; min-height:32px; transition:border-color .15s, color .15s; }
+  .acc-note { width:100%; background:#111; border:1px solid #1e1e1e; border-radius:8px; color:#777; font-size:12px; font-family:system-ui,sans-serif; padding:7px 10px; outline:none; resize:none; line-height:1.5; min-height:32px; transition:border-color .15s, color .15s; margin-top:6px; }
   .acc-note::placeholder { color:#333; }
   .acc-note:focus { border-color:#444; color:var(--dim); }
   .acc-note.has-note { color:var(--dim); border-color:#333; }
@@ -124,13 +122,7 @@
       <div class="week-row peak" data-lift="squat" data-week="12" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 12</span><span class="wsets">1 × 1</span><span class="wkg">215 kg ★</span></div>
     </div>
     <div class="slabel">Accessories</div>
-    <div class="acc-list">
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Leg Press</div><div class="acc-tags"><span class="tag">3 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pon-1" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pon-1" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Leg Curl</div><div class="acc-tags"><span class="tag">3 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pon-2" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pon-2" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Hip Thrust</div><div class="acc-tags"><span class="tag">3 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pon-3" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pon-3" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Leg Extension</div><div class="acc-tags"><span class="tag">2 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pon-4" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pon-4" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Calf Raises</div><div class="acc-tags"><span class="tag">3 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="pon-5" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-pon-5" oninput="saveNote(this)"></textarea></div></div>
-    </div>
+    <div class="acc-list" id="acc-pon"></div>
   </div>
 
   <!-- TUESDAY — Bench -->
@@ -193,14 +185,7 @@
       </div></div>
     </div>
     <div class="slabel">Accessories</div>
-    <div class="acc-list">
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Barbell Row</div><div class="acc-tags"><span class="tag">4 × 8</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="wt-1" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-wt-1" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Pulldown</div><div class="acc-tags"><span class="tag">4 × 10</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="wt-2" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-wt-2" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Machine Flye</div><div class="acc-tags"><span class="tag">2 × 12–15</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="wt-6" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-wt-6" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Side Raise</div><div class="acc-tags"><span class="tag">3 × 12–15</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="wt-3" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-wt-3" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Tricep Extension</div><div class="acc-tags"><span class="tag">3 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="wt-4" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-wt-4" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Bicep Curl</div><div class="acc-tags"><span class="tag">3 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="wt-5" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-wt-5" oninput="saveNote(this)"></textarea></div></div>
-    </div>
+    <div class="acc-list" id="acc-wt"></div>
   </div>
 
   <!-- THURSDAY — Deadlift + Upper -->
@@ -226,21 +211,9 @@
       <div class="week-row peak" data-lift="dead" data-week="12" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 12</span><span class="wsets">1 × 1</span><span class="wkg">270 kg ★</span></div>
     </div>
     <div class="slabel">Accessories — Lower</div>
-    <div class="acc-list">
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Hack Squat</div><div class="acc-tags"><span class="tag">2 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="czw-1" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-czw-1" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Leg Curl</div><div class="acc-tags"><span class="tag">3 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="czw-2" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-czw-2" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Hip Extension</div><div class="acc-tags"><span class="tag">1 × failure</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="czw-3" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-czw-3" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Calf Raises</div><div class="acc-tags"><span class="tag">3 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="czw-4" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-czw-4" oninput="saveNote(this)"></textarea></div></div>
-    </div>
+    <div class="acc-list" id="acc-czw-lower"></div>
     <div class="slabel">Accessories — Upper</div>
-    <div class="acc-list">
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Chest Press</div><div class="acc-tags"><span class="tag">2 × 12–15</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="czw-5" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-czw-5" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">OHP</div><div class="acc-tags"><span class="tag">2 × 10</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="czw-6" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-czw-6" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Seated Cable Row</div><div class="acc-tags"><span class="tag">3 × 10–12</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="czw-7" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-czw-7" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Face Pull</div><div class="acc-tags"><span class="tag">2 × 15</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="czw-8" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-czw-8" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Bicep Curl</div><div class="acc-tags"><span class="tag">1 × 15</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="czw-9" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-czw-9" oninput="saveNote(this)"></textarea></div></div>
-      <div class="acc-item"><div class="acc-top"><div class="acc-info"><div class="acc-name">Tricep Extension</div><div class="acc-tags"><span class="tag">1 × 15</span></div></div><input class="acc-input" type="number" placeholder="kg" data-key="czw-10" oninput="saveKg(this)"></div><div class="acc-note-wrap"><textarea class="acc-note" rows="1" placeholder="note" data-key="note-czw-10" oninput="saveNote(this)"></textarea></div></div>
-    </div>
+    <div class="acc-list" id="acc-czw-upper"></div>
   </div>
 
   <!-- RULES -->
@@ -271,7 +244,7 @@
     <div class="rule-card"><div class="rule-title" style="color:var(--accent)">Warm-up</div><div class="rule-body">Always build up gradually: 50% → 65% → 80% → working weight.</div></div>
     <div class="rule-card"><div class="rule-title" style="color:#ffa040">Week 12 — Peak</div><div class="rule-body">Hit the planned weight first. If the single feels easy — take another attempt with +5–10 kg. Don't risk it earlier in the cycle.</div></div>
     <div class="rule-card"><div class="rule-title" style="color:var(--squat)">After the Cycle — Deload</div><div class="rule-body">1–3 weeks at 50–60% of working weights. Then start a new cycle with your new 1RM as the baseline.</div></div>
-    <div class="rule-card"><div class="rule-title" style="color:var(--dead)">Accessories</div><div class="rule-body">Keep accessory weights moderate throughout the cycle. They support the main lifts — don't let them generate extra fatigue.</div></div>
+    <div class="rule-card"><div class="rule-title" style="color:var(--dead)">Accessories</div><div class="rule-body">Keep accessory weights moderate throughout the cycle. They support the main lifts — don't let them generate extra fatigue. Swap exercises within the same category every 2–3 weeks using the dropdown to keep things fresh.</div></div>
     <div class="rule-card"><div class="rule-title" style="color:var(--light)">Progression</div><div class="rule-body">+7.5 kg/week on squat and deadlift, +5 kg/week on bench. Stick to the plan even when you feel strong.</div></div>
   </div>
 
@@ -279,6 +252,80 @@
 
 <script>
   const TAB_COLORS = { pon:'var(--squat)', wt:'var(--bench)', czw:'var(--dead)', rules:'var(--accent)' };
+
+  // Accessory slot definitions: each slot has a category label, set/rep tag, and a list of exercise options.
+  const ACCESSORY_SLOTS = {
+    'pon': [
+      { key:'pon-1', cat:'Quady', tag:'3 × 10–12', options:['Leg Press','Hack Squat','Bulgarian Split Squat','Front Squat'] },
+      { key:'pon-2', cat:'Hamstringi', tag:'3 × 10–12', options:['Leg Curl','Seated Leg Curl','Nordic Curl','Romanian Deadlift'] },
+      { key:'pon-3', cat:'Pośladki', tag:'3 × 10–12', options:['Hip Thrust','Glute Bridge','Cable Pull-Through','Single-Leg Hip Thrust'] },
+      { key:'pon-4', cat:'Quady (izolacja)', tag:'2 × 10–12', options:['Leg Extension','Sissy Squat','Walking Lunge'] },
+      { key:'pon-5', cat:'Łydki', tag:'3 × 10–12', options:['Calf Raises','Seated Calf Raise','Leg Press Calf Raise'] },
+    ],
+    'wt': [
+      { key:'wt-1', cat:'Plecy (grube)', tag:'4 × 8', options:['Barbell Row','T-Bar Row','Pendlay Row','Chest-Supported Row'] },
+      { key:'wt-2', cat:'Plecy (szerokość)', tag:'4 × 10', options:['Pulldown','Chin-ups','Single-arm Lat Pulldown','Straight-Arm Pulldown'] },
+      { key:'wt-3', cat:'Bark boczny', tag:'3 × 12–15', options:['Side Raise','Cable Lateral Raise','Lu Raise'] },
+      { key:'wt-4', cat:'Triceps', tag:'3 × 10–12', options:['Tricep Extension','Skull Crusher','JM Press','Rope Pushdown'] },
+      { key:'wt-5', cat:'Biceps', tag:'3 × 10–12', options:['Bicep Curl','Hammer Curl','Incline DB Curl','Cable Curl'] },
+      { key:'wt-6', cat:'Klatka (izolacja)', tag:'2 × 12–15', options:['Machine Flye','Cable Crossover','Dumbbell Flyes'] },
+    ],
+    'czw-lower': [
+      { key:'czw-1', cat:'Quady', tag:'2 × 10–12', options:['Hack Squat','Bulgarian Split Squat','Leg Press'] },
+      { key:'czw-2', cat:'Hamstringi', tag:'3 × 10–12', options:['Leg Curl','Seated Leg Curl','Nordic Curl'] },
+      { key:'czw-3', cat:'Pośladki (failure)', tag:'1 × failure', options:['Hip Extension','Glute Bridge','Cable Pull-Through'] },
+      { key:'czw-4', cat:'Łydki', tag:'3 × 10–12', options:['Calf Raises','Seated Calf Raise'] },
+    ],
+    'czw-upper': [
+      { key:'czw-5', cat:'Klatka', tag:'2 × 12–15', options:['Chest Press','Machine Flye','Cable Crossover','Dumbbell Flyes'] },
+      { key:'czw-6', cat:'Bark przedni', tag:'2 × 10', options:['OHP','Arnold Press','Landmine Press'] },
+      { key:'czw-7', cat:'Plecy', tag:'3 × 10–12', options:['Seated Cable Row','Chest-Supported Row','T-Bar Row'] },
+      { key:'czw-8', cat:'Bark tylny', tag:'2 × 15', options:['Face Pull','Rear Delt Raise','Band Pull-Apart'] },
+      { key:'czw-9', cat:'Biceps', tag:'1 × 15', options:['Bicep Curl','Hammer Curl','Cable Curl'] },
+      { key:'czw-10', cat:'Triceps', tag:'1 × 15', options:['Tricep Extension','Rope Pushdown','Skull Crusher'] },
+    ],
+  };
+
+  function renderAccessories() {
+    Object.keys(ACCESSORY_SLOTS).forEach(group => {
+      let containerId;
+      if (group === 'pon') containerId = 'acc-pon';
+      else if (group === 'wt') containerId = 'acc-wt';
+      else if (group === 'czw-lower') containerId = 'acc-czw-lower';
+      else if (group === 'czw-upper') containerId = 'acc-czw-upper';
+      const container = document.getElementById(containerId);
+      if (!container) return;
+
+      ACCESSORY_SLOTS[group].forEach(slot => {
+        const item = document.createElement('div');
+        item.className = 'acc-item';
+
+        const savedExercise = localStorage.getItem('exercise_' + slot.key) || slot.options[0];
+        const savedKg = localStorage.getItem('coan_' + slot.key) || '';
+        const savedNote = localStorage.getItem('coan_note_' + slot.key) || '';
+
+        const optionsHtml = slot.options.map(opt =>
+          `<option value="${opt}" ${opt === savedExercise ? 'selected' : ''}>${opt}</option>`
+        ).join('');
+
+        item.innerHTML = `
+          <div class="acc-top-row">
+            <div class="acc-select-wrap">
+              <select class="acc-select" data-key="${slot.key}" onchange="saveExercise(this)">${optionsHtml}</select>
+            </div>
+            <span class="acc-tag-static">${slot.tag}</span>
+            <input class="acc-input ${savedKg ? 'has-value' : ''}" type="number" placeholder="kg" data-key="${slot.key}" value="${savedKg}" oninput="saveKg(this)">
+          </div>
+          <textarea class="acc-note ${savedNote ? 'has-note' : ''}" rows="1" placeholder="note" data-key="${slot.key}" oninput="saveNote(this)">${savedNote}</textarea>
+        `;
+        container.appendChild(item);
+      });
+    });
+  }
+
+  function saveExercise(select) {
+    localStorage.setItem('exercise_' + select.dataset.key, select.value);
+  }
 
   function switchTab(id) {
     document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
@@ -317,21 +364,14 @@
   }
 
   function saveNote(ta) {
-    localStorage.setItem('coan_'+ta.dataset.key, ta.value);
+    localStorage.setItem('coan_note_'+ta.dataset.key, ta.value);
     ta.classList.toggle('has-note', ta.value !== '');
     ta.style.height='auto';
     ta.style.height=ta.scrollHeight+'px';
   }
 
   function loadAll() {
-    document.querySelectorAll('.acc-input').forEach(el => {
-      const v = localStorage.getItem('coan_'+el.dataset.key);
-      if (v) { el.value=v; el.classList.add('has-value'); }
-    });
-    document.querySelectorAll('.acc-note').forEach(el => {
-      const v = localStorage.getItem('coan_'+el.dataset.key);
-      if (v) { el.value=v; el.classList.add('has-note'); el.style.height='auto'; el.style.height=el.scrollHeight+'px'; }
-    });
+    renderAccessories();
     ['squat','bench','closegrip','incline','dead'].forEach(renderWeeks);
   }
 
