@@ -9,7 +9,7 @@
     --bg: #0a0a0a; --surface: #141414; --card: #1a1a1a;
     --border: #2a2a2a; --darker: #222; --dim: #aaa; --muted: #555;
     --accent: #e8c84a; --text: #f0ede6;
-    --squat: #4a9eff; --bench: #e05a2b; --dead: #c084fc; --light: #4ade80;
+    --me: #e05a2b; --re: #4ade80;
   }
   * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
   body { background:var(--bg); color:var(--text); font-family:system-ui,-apple-system,sans-serif; min-height:100vh; }
@@ -33,36 +33,26 @@
   .day-type { font-family:monospace; font-size:10px; letter-spacing:.12em; margin-top:4px; opacity:.6; text-transform:uppercase; }
 
   .slabel { font-family:monospace; font-size:10px; letter-spacing:.18em; color:var(--muted); text-transform:uppercase; margin:18px 0 8px; }
+  .slabel-note { font-family:monospace; font-size:9px; color:var(--muted); margin-left:8px; text-transform:none; letter-spacing:0; }
 
-  .week-table { background:var(--card); border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:8px; }
-  .week-row { display:grid; grid-template-columns:32px 52px 1fr auto; align-items:center; padding:10px 14px; border-bottom:1px solid var(--darker); cursor:pointer; transition:background .15s; gap:4px; }
-  .week-row:last-child { border-bottom:none; }
-  .week-row:active { background:rgba(255,255,255,.04); }
-  .week-row.peak { background:rgba(232,200,74,.06); }
-  .week-row.current { background:rgba(255,255,255,.06) !important; }
-  .week-row.done { opacity:.4; }
-  .week-check { width:20px; height:20px; border-radius:50%; border:1.5px solid var(--border); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:10px; color:transparent; transition:all .15s; }
-  .week-row.current .week-check { border-color:var(--accent); background:var(--accent); color:#000; font-weight:900; }
-  .week-row.done .week-check { border-color:#3a3a3a; background:#2a2a2a; color:#666; }
-  .wtyg { font-family:monospace; font-size:11px; color:var(--muted); }
-  .wsets { font-family:monospace; font-size:12px; color:#888; }
-  .wkg { font-family:monospace; font-size:14px; font-weight:700; color:var(--text); text-align:right; }
-  .week-row.peak .wkg { color:var(--accent); }
-  .week-row.current .wtyg { color:var(--text); }
-  .week-row.current .wsets { color:var(--dim); }
+  .me-block { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:14px; margin-bottom:8px; border-left:3px solid var(--me); }
+  .me-title { font-family:monospace; font-size:10px; letter-spacing:.15em; text-transform:uppercase; color:var(--me); margin-bottom:10px; }
+  .me-select { width:100%; background:#1f1f1f; border:1px solid var(--border); border-radius:8px; color:var(--text); font-size:13px; padding:8px 10px; outline:none; appearance:none; -webkit-appearance:none; background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6'><path d='M0 0L5 6L10 0' fill='none' stroke='%23888' stroke-width='1.5'/></svg>"); background-repeat:no-repeat; background-position:right 10px center; padding-right:26px; margin-bottom:10px; }
+  .me-select:focus { border-color:var(--me); }
+  .me-info { font-size:12px; color:var(--dim); line-height:1.7; }
+  .me-info strong { color:var(--text); }
+  .me-log { margin-top:10px; }
+  .me-log-row { display:flex; gap:8px; align-items:center; margin-bottom:6px; }
+  .me-log-label { font-family:monospace; font-size:11px; color:var(--muted); width:60px; flex-shrink:0; }
+  .me-input { flex:1; padding:6px 10px; background:#252525; border:1px solid var(--border); border-radius:8px; color:var(--muted); font-family:monospace; font-size:13px; outline:none; transition:border-color .15s, color .15s; }
+  .me-input:focus { border-color:var(--accent); }
+  .me-input.has-value { border-color:var(--accent); color:var(--accent); }
 
-  .collapsible { background:var(--card); border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:8px; }
-  .coll-header { display:flex; justify-content:space-between; align-items:center; padding:12px 14px; cursor:pointer; user-select:none; }
-  .coll-title { font-family:monospace; font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:#ccc; }
-  .coll-arrow { color:var(--muted); font-size:10px; transition:transform .2s; }
-  .collapsible.open .coll-arrow { transform:rotate(180deg); }
-  .coll-body { display:none; }
-  .collapsible.open .coll-body { display:block; }
-
-  .acc-list { background:var(--card); border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+  .acc-list { background:var(--card); border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:8px; }
   .acc-item { border-bottom:1px solid var(--darker); padding:11px 14px; }
   .acc-item:last-child { border-bottom:none; }
   .acc-top-row { display:flex; align-items:center; gap:8px; margin-bottom:6px; }
+  .acc-label { font-family:monospace; font-size:9px; color:var(--muted); text-transform:uppercase; letter-spacing:.1em; margin-bottom:4px; }
   .acc-select-wrap { flex:1; min-width:0; }
   .acc-select { width:100%; background:#1f1f1f; border:1px solid var(--border); border-radius:8px; color:var(--text); font-size:13px; padding:7px 10px; outline:none; appearance:none; -webkit-appearance:none; background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6'><path d='M0 0L5 6L10 0' fill='none' stroke='%23888' stroke-width='1.5'/></svg>"); background-repeat:no-repeat; background-position:right 10px center; padding-right:26px; }
   .acc-select:focus { border-color:var(--accent); }
@@ -82,6 +72,10 @@
   .rest-row { display:flex; justify-content:space-between; padding:11px 14px; border-bottom:1px solid var(--darker); font-family:monospace; font-size:12px; }
   .rest-row:last-child { border-bottom:none; }
   .rest-row span:last-child { color:var(--accent); }
+  .rotation-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:14px; margin-bottom:8px; }
+  .rotation-title { font-family:monospace; font-size:10px; letter-spacing:.15em; text-transform:uppercase; color:var(--me); margin-bottom:8px; }
+  .rotation-item { font-size:13px; color:var(--dim); padding:4px 0; border-bottom:1px solid var(--darker); }
+  .rotation-item:last-child { border-bottom:none; }
 </style>
 </head>
 <body>
@@ -91,7 +85,7 @@
 </div>
 
 <nav class="nav">
-  <button class="nav-btn active" style="border-bottom-color:var(--squat)" data-tab="pon" onclick="switchTab('pon')">MON</button>
+  <button class="nav-btn active" style="border-bottom-color:var(--me)" data-tab="pon" onclick="switchTab('pon')">MON</button>
   <button class="nav-btn" data-tab="wt" onclick="switchTab('wt')">TUE</button>
   <button class="nav-btn" data-tab="czw" onclick="switchTab('czw')">THU</button>
   <button class="nav-btn" data-tab="rules" onclick="switchTab('rules')">☰</button>
@@ -99,121 +93,121 @@
 
 <div class="content">
 
-  <!-- MONDAY — Squat -->
+  <!-- MONDAY — ME Lower -->
   <div class="section active" id="tab-pon">
-    <div class="day-header" style="border-left-color:var(--squat)">
+    <div class="day-header" style="border-left-color:var(--me)">
       <div class="day-sub">Monday</div>
-      <div class="day-name" style="color:var(--squat)">Back Squat</div>
-      <div class="day-type" style="color:var(--squat)">Lower · Heavy</div>
+      <div class="day-name" style="color:var(--me)">Max Effort Lower</div>
+      <div class="day-type" style="color:var(--me)">Squat / Deadlift variation</div>
     </div>
-    <div class="slabel">Main Work</div>
-    <div class="week-table">
-      <div class="week-row" data-lift="squat" data-week="1" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 1</span><span class="wsets">2 × 10</span><span class="wkg">137,5 kg</span></div>
-      <div class="week-row" data-lift="squat" data-week="2" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 2</span><span class="wsets">2 × 10</span><span class="wkg">145 kg</span></div>
-      <div class="week-row" data-lift="squat" data-week="3" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 3</span><span class="wsets">2 × 8</span><span class="wkg">152,5 kg</span></div>
-      <div class="week-row" data-lift="squat" data-week="4" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 4</span><span class="wsets">2 × 8</span><span class="wkg">160 kg</span></div>
-      <div class="week-row" data-lift="squat" data-week="5" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 5</span><span class="wsets">2 × 5</span><span class="wkg">167,5 kg</span></div>
-      <div class="week-row" data-lift="squat" data-week="6" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 6</span><span class="wsets">2 × 5</span><span class="wkg">175 kg</span></div>
-      <div class="week-row" data-lift="squat" data-week="7" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 7</span><span class="wsets">2 × 5</span><span class="wkg">182,5 kg</span></div>
-      <div class="week-row" data-lift="squat" data-week="8" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 8</span><span class="wsets">2 × 3</span><span class="wkg">190 kg</span></div>
-      <div class="week-row" data-lift="squat" data-week="9" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 9</span><span class="wsets">2 × 3</span><span class="wkg">197,5 kg</span></div>
-      <div class="week-row" data-lift="squat" data-week="10" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 10</span><span class="wsets">2 × 2</span><span class="wkg">205 kg</span></div>
-      <div class="week-row" data-lift="squat" data-week="11" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 11</span><span class="wsets">2 × 2</span><span class="wkg">212,5 kg</span></div>
-      <div class="week-row peak" data-lift="squat" data-week="12" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 12</span><span class="wsets">1 × 1</span><span class="wkg">215 kg ★</span></div>
+
+    <div class="slabel">1 — Building Movement <span class="slabel-note">praca do heavy single</span></div>
+    <div class="me-block">
+      <div class="me-title">ME Lower — wybierz wariację (rotuj co tydzień)</div>
+      <select class="me-select" id="me-lower-select" onchange="saveMeSelect('me-lower')">
+        <option value="box_squat">Box Squat</option>
+        <option value="paused_squat">Paused Squat</option>
+        <option value="deficit_dl">Deficit Deadlift</option>
+        <option value="rack_pull">Rack Pull (from pins)</option>
+        <option value="sumo_dl">Sumo Deadlift</option>
+        <option value="paused_dl">Paused Deadlift</option>
+        <option value="good_morning">Good Morning (min. 3RM)</option>
+        <option value="rdl_me">Romanian Deadlift (3-5RM)</option>
+      </select>
+      <div class="me-info">
+        <strong>Protokół Tate:</strong> Serie po 3 rosnąc → single → heavy single (PR na tę wariację). 2-4 powt łącznie powyżej 90%. Naucz się "strainu" — 3-7 sek walki przez sticking point. Po PR — stop.
+      </div>
+      <div class="me-log">
+        <div class="me-log-row"><span class="me-log-label">Ciężar</span><input class="me-input" type="number" placeholder="kg" data-key="me-lower-kg" oninput="saveMeInput(this)"></div>
+        <div class="me-log-row"><span class="me-log-label">Powt.</span><input class="me-input" type="number" placeholder="reps" data-key="me-lower-reps" oninput="saveMeInput(this)"></div>
+      </div>
     </div>
-    <div class="slabel">Accessories</div>
-    <div class="acc-list" id="acc-pon"></div>
+
+    <div class="slabel">2 — Supplemental <span class="slabel-note">wzmacnia building movement · 3–5 × 3–5</span></div>
+    <div class="acc-list" id="acc-pon-supp"></div>
+
+    <div class="slabel">3 — Accessory <span class="slabel-note">posterior chain — obowiązkowo</span></div>
+    <div class="acc-list" id="acc-pon-acc"></div>
+
+    <div class="slabel">4 — Lats <span class="slabel-note">każdą sesję — horizontal lub vertical pull</span></div>
+    <div class="acc-list" id="acc-pon-lats"></div>
+
+    <div class="slabel">5 — Abs <span class="slabel-note">obowiązkowo</span></div>
+    <div class="acc-list" id="acc-pon-abs"></div>
   </div>
 
-  <!-- TUESDAY — Bench -->
+  <!-- TUESDAY — ME Upper -->
   <div class="section" id="tab-wt">
-    <div class="day-header" style="border-left-color:var(--bench)">
+    <div class="day-header" style="border-left-color:var(--me)">
       <div class="day-sub">Tuesday</div>
-      <div class="day-name" style="color:var(--bench)">Bench Press</div>
-      <div class="day-type" style="color:var(--bench)">Upper · Heavy</div>
+      <div class="day-name" style="color:var(--me)">Max Effort Upper</div>
+      <div class="day-type" style="color:var(--me)">Bench variation</div>
     </div>
-    <div class="slabel">Main Work</div>
-    <div class="collapsible open">
-      <div class="coll-header" onclick="toggleColl(this)"><span class="coll-title">Bench Press</span><span class="coll-arrow">▼</span></div>
-      <div class="coll-body"><div class="week-table">
-        <div class="week-row" data-lift="bench" data-week="1" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 1</span><span class="wsets">2 × 10</span><span class="wkg">72,5 kg</span></div>
-        <div class="week-row" data-lift="bench" data-week="2" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 2</span><span class="wsets">2 × 10</span><span class="wkg">77,5 kg</span></div>
-        <div class="week-row" data-lift="bench" data-week="3" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 3</span><span class="wsets">2 × 8</span><span class="wkg">82,5 kg</span></div>
-        <div class="week-row" data-lift="bench" data-week="4" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 4</span><span class="wsets">2 × 8</span><span class="wkg">87,5 kg</span></div>
-        <div class="week-row" data-lift="bench" data-week="5" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 5</span><span class="wsets">2 × 5</span><span class="wkg">92,5 kg</span></div>
-        <div class="week-row" data-lift="bench" data-week="6" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 6</span><span class="wsets">2 × 5</span><span class="wkg">97,5 kg</span></div>
-        <div class="week-row" data-lift="bench" data-week="7" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 7</span><span class="wsets">2 × 5</span><span class="wkg">102,5 kg</span></div>
-        <div class="week-row" data-lift="bench" data-week="8" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 8</span><span class="wsets">2 × 3</span><span class="wkg">107,5 kg</span></div>
-        <div class="week-row" data-lift="bench" data-week="9" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 9</span><span class="wsets">2 × 3</span><span class="wkg">107,5 kg</span></div>
-        <div class="week-row" data-lift="bench" data-week="10" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 10</span><span class="wsets">2 × 2</span><span class="wkg">112,5 kg</span></div>
-        <div class="week-row" data-lift="bench" data-week="11" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 11</span><span class="wsets">2 × 2</span><span class="wkg">115 kg</span></div>
-        <div class="week-row peak" data-lift="bench" data-week="12" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 12</span><span class="wsets">1 × 1</span><span class="wkg">117,5 kg ★</span></div>
-      </div></div>
+
+    <div class="slabel">1 — Building Movement <span class="slabel-note">praca do heavy single</span></div>
+    <div class="me-block">
+      <div class="me-title">ME Upper — wybierz wariację (rotuj co tydzień)</div>
+      <select class="me-select" id="me-upper-select" onchange="saveMeSelect('me-upper')">
+        <option value="floor_press">Floor Press</option>
+        <option value="paused_bench">Paused Bench Press</option>
+        <option value="close_grip">Close-Grip Bench Press</option>
+        <option value="incline_me">Incline Bench Press (ME)</option>
+        <option value="board_press">Board Press</option>
+        <option value="comp_bench">Competition Bench Press</option>
+        <option value="ohp_me">Seated Overhead Press (ME)</option>
+      </select>
+      <div class="me-info">
+        <strong>Protokół Tate:</strong> Serie po 3 rosnąc → single → heavy single (PR na tę wariację). 2-4 powt łącznie powyżej 90%. Naucz się "strainu" — 3-7 sek walki przez sticking point. Po PR — stop.
+      </div>
+      <div class="me-log">
+        <div class="me-log-row"><span class="me-log-label">Ciężar</span><input class="me-input" type="number" placeholder="kg" data-key="me-upper-kg" oninput="saveMeInput(this)"></div>
+        <div class="me-log-row"><span class="me-log-label">Powt.</span><input class="me-input" type="number" placeholder="reps" data-key="me-upper-reps" oninput="saveMeInput(this)"></div>
+      </div>
     </div>
-    <div class="collapsible">
-      <div class="coll-header" onclick="toggleColl(this)"><span class="coll-title">Close-Grip (paused)</span><span class="coll-arrow">▼</span></div>
-      <div class="coll-body"><div class="week-table">
-        <div class="week-row" data-lift="closegrip" data-week="1" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 1</span><span class="wsets">2 × 10</span><span class="wkg">62,5 kg</span></div>
-        <div class="week-row" data-lift="closegrip" data-week="2" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 2</span><span class="wsets">2 × 10</span><span class="wkg">67,5 kg</span></div>
-        <div class="week-row" data-lift="closegrip" data-week="3" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 3</span><span class="wsets">2 × 8</span><span class="wkg">72,5 kg</span></div>
-        <div class="week-row" data-lift="closegrip" data-week="4" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 4</span><span class="wsets">2 × 8</span><span class="wkg">77,5 kg</span></div>
-        <div class="week-row" data-lift="closegrip" data-week="5" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 5</span><span class="wsets">2 × 5</span><span class="wkg">82,5 kg</span></div>
-        <div class="week-row" data-lift="closegrip" data-week="6" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 6</span><span class="wsets">2 × 5</span><span class="wkg">87,5 kg</span></div>
-        <div class="week-row" data-lift="closegrip" data-week="7" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 7</span><span class="wsets">2 × 5</span><span class="wkg">92,5 kg</span></div>
-        <div class="week-row" data-lift="closegrip" data-week="8" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 8</span><span class="wsets">2 × 3</span><span class="wkg">97,5 kg</span></div>
-        <div class="week-row" data-lift="closegrip" data-week="9" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 9</span><span class="wsets">2 × 3</span><span class="wkg">97,5 kg</span></div>
-        <div class="week-row" data-lift="closegrip" data-week="10" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 10</span><span class="wsets">2 × 2</span><span class="wkg">102,5 kg</span></div>
-        <div class="week-row" data-lift="closegrip" data-week="11" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 11</span><span class="wsets">2 × 2</span><span class="wkg">105 kg</span></div>
-        <div class="week-row peak" data-lift="closegrip" data-week="12" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 12</span><span class="wsets">1 × 1</span><span class="wkg">107,5 kg ★</span></div>
-      </div></div>
-    </div>
-    <div class="collapsible">
-      <div class="coll-header" onclick="toggleColl(this)"><span class="coll-title">Incline Bench</span><span class="coll-arrow">▼</span></div>
-      <div class="coll-body"><div class="week-table">
-        <div class="week-row" data-lift="incline" data-week="1" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 1</span><span class="wsets">2 × 10</span><span class="wkg">47,5 kg</span></div>
-        <div class="week-row" data-lift="incline" data-week="2" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 2</span><span class="wsets">2 × 10</span><span class="wkg">52,5 kg</span></div>
-        <div class="week-row" data-lift="incline" data-week="3" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 3</span><span class="wsets">2 × 8</span><span class="wkg">57,5 kg</span></div>
-        <div class="week-row" data-lift="incline" data-week="4" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 4</span><span class="wsets">2 × 8</span><span class="wkg">62,5 kg</span></div>
-        <div class="week-row" data-lift="incline" data-week="5" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 5</span><span class="wsets">2 × 5</span><span class="wkg">67,5 kg</span></div>
-        <div class="week-row" data-lift="incline" data-week="6" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 6</span><span class="wsets">2 × 5</span><span class="wkg">72,5 kg</span></div>
-        <div class="week-row" data-lift="incline" data-week="7" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 7</span><span class="wsets">2 × 5</span><span class="wkg">77,5 kg</span></div>
-        <div class="week-row" data-lift="incline" data-week="8" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 8</span><span class="wsets">2 × 3</span><span class="wkg">82,5 kg</span></div>
-        <div class="week-row" data-lift="incline" data-week="9" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 9</span><span class="wsets">2 × 3</span><span class="wkg">82,5 kg</span></div>
-        <div class="week-row" data-lift="incline" data-week="10" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 10</span><span class="wsets">2 × 2</span><span class="wkg">87,5 kg</span></div>
-        <div class="week-row" data-lift="incline" data-week="11" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 11</span><span class="wsets">2 × 2</span><span class="wkg">90 kg</span></div>
-        <div class="week-row peak" data-lift="incline" data-week="12" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 12</span><span class="wsets">1 × 1</span><span class="wkg">92,5 kg ★</span></div>
-      </div></div>
-    </div>
-    <div class="slabel">Accessories</div>
-    <div class="acc-list" id="acc-wt"></div>
+
+    <div class="slabel">2 — Supplemental <span class="slabel-note">wzmacnia building movement · 3–5 × 3–5</span></div>
+    <div class="acc-list" id="acc-wt-supp"></div>
+
+    <div class="slabel">3 — Accessory <span class="slabel-note">triceps — priorytet upper</span></div>
+    <div class="acc-list" id="acc-wt-tri"></div>
+
+    <div class="slabel">4 — Lats <span class="slabel-note">każdą sesję — naprzemiennie vertical/horizontal</span></div>
+    <div class="acc-list" id="acc-wt-lats"></div>
+
+    <div class="slabel">5 — Fluff & Buff <span class="slabel-note">hipertrofia · bark, klatka, biceps</span></div>
+    <div class="acc-list" id="acc-wt-fluff"></div>
   </div>
 
-  <!-- THURSDAY — Deadlift + Upper -->
+  <!-- THURSDAY — FBW Repeated Effort -->
   <div class="section" id="tab-czw">
-    <div class="day-header" style="border-left-color:var(--dead)">
+    <div class="day-header" style="border-left-color:var(--re)">
       <div class="day-sub">Thursday</div>
-      <div class="day-name" style="color:var(--dead)">Deadlift</div>
-      <div class="day-type" style="color:var(--dead)">Lower + Upper Supplement</div>
+      <div class="day-name" style="color:var(--re)">Full Body RE</div>
+      <div class="day-type" style="color:var(--re)">Repeated Effort — objętość i hipertrofia</div>
     </div>
-    <div class="slabel">Main Work</div>
-    <div class="week-table">
-      <div class="week-row" data-lift="dead" data-week="1" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 1</span><span class="wsets">1 × 8</span><span class="wkg">175 kg</span></div>
-      <div class="week-row" data-lift="dead" data-week="2" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 2</span><span class="wsets">2 × 5</span><span class="wkg">182,5 kg</span></div>
-      <div class="week-row" data-lift="dead" data-week="3" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 3</span><span class="wsets">2 × 5</span><span class="wkg">190 kg</span></div>
-      <div class="week-row" data-lift="dead" data-week="4" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 4</span><span class="wsets">2 × 5</span><span class="wkg">197,5 kg</span></div>
-      <div class="week-row" data-lift="dead" data-week="5" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 5</span><span class="wsets">2 × 5</span><span class="wkg">205 kg</span></div>
-      <div class="week-row" data-lift="dead" data-week="6" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 6</span><span class="wsets">2 × 5</span><span class="wkg">212,5 kg</span></div>
-      <div class="week-row" data-lift="dead" data-week="7" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 7</span><span class="wsets">2 × 3</span><span class="wkg">220 kg</span></div>
-      <div class="week-row" data-lift="dead" data-week="8" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 8</span><span class="wsets">2 × 3</span><span class="wkg">227,5 kg</span></div>
-      <div class="week-row" data-lift="dead" data-week="9" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 9</span><span class="wsets">2 × 3</span><span class="wkg">235 kg</span></div>
-      <div class="week-row" data-lift="dead" data-week="10" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 10</span><span class="wsets">2 × 2</span><span class="wkg">242,5 kg</span></div>
-      <div class="week-row" data-lift="dead" data-week="11" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 11</span><span class="wsets">2 × 2</span><span class="wkg">252,5 kg</span></div>
-      <div class="week-row peak" data-lift="dead" data-week="12" onclick="markWeek(this)"><div class="week-check"></div><span class="wtyg">Wk 12</span><span class="wsets">1 × 1</span><span class="wkg">270 kg ★</span></div>
+
+    <div class="rule-card" style="margin-bottom:16px;">
+      <div class="rule-title" style="color:var(--re)">Protokół RE wg Tate</div>
+      <div class="rule-body">Metoda powtórzeń — umiarkowane ciężary do załamania lub blisko niego. To buduje masę mięśniową i uzupełnia słabe punkty. Krótkie przerwy 60–90 sek. Rotuj ćwiczenia co 3 tygodnie.</div>
     </div>
-    <div class="slabel">Accessories — Lower</div>
-    <div class="acc-list" id="acc-czw-lower"></div>
-    <div class="slabel">Accessories — Upper</div>
-    <div class="acc-list" id="acc-czw-upper"></div>
+
+    <div class="slabel">Lower — Building <span class="slabel-note">główny ruch dolnej</span></div>
+    <div class="acc-list" id="acc-czw-lower-build"></div>
+
+    <div class="slabel">Lower — Posterior Chain <span class="slabel-note">obowiązkowo</span></div>
+    <div class="acc-list" id="acc-czw-lower-post"></div>
+
+    <div class="slabel">Upper — Building <span class="slabel-note">główny ruch górnej</span></div>
+    <div class="acc-list" id="acc-czw-upper-build"></div>
+
+    <div class="slabel">Upper — Triceps <span class="slabel-note">priorytet</span></div>
+    <div class="acc-list" id="acc-czw-upper-tri"></div>
+
+    <div class="slabel">Lats <span class="slabel-note">każdą sesję</span></div>
+    <div class="acc-list" id="acc-czw-lats"></div>
+
+    <div class="slabel">Abs <span class="slabel-note">obowiązkowo</span></div>
+    <div class="acc-list" id="acc-czw-abs"></div>
   </div>
 
   <!-- RULES -->
@@ -222,111 +216,169 @@
       <div class="day-sub">Guide</div>
       <div class="day-name" style="color:var(--accent)">Rules</div>
     </div>
+
     <div class="slabel">Weekly Structure</div>
     <div class="rest-table">
-      <div class="rest-row"><span>Monday</span><span style="color:var(--squat)">Lower · Squat Heavy</span></div>
-      <div class="rest-row"><span>Tuesday</span><span style="color:var(--bench)">Upper · Bench Heavy</span></div>
+      <div class="rest-row"><span>Monday</span><span style="color:var(--me)">Max Effort Lower</span></div>
+      <div class="rest-row"><span>Tuesday</span><span style="color:var(--me)">Max Effort Upper</span></div>
       <div class="rest-row"><span>Wednesday</span><span style="color:var(--muted)">— boks —</span></div>
-      <div class="rest-row"><span>Thursday</span><span style="color:var(--dead)">Lower · Deadlift + Upper</span></div>
+      <div class="rest-row"><span>Thursday</span><span style="color:var(--re)">Full Body Repeated Effort</span></div>
       <div class="rest-row"><span>Friday</span><span style="color:var(--muted)">— boks —</span></div>
       <div class="rest-row"><span>Saturday / Sunday</span><span style="color:var(--muted)">— rest —</span></div>
     </div>
-    <div class="slabel">Rest Between Sets</div>
-    <div class="rest-table">
-      <div class="rest-row"><span>10 reps</span><span>3–4 min</span></div>
-      <div class="rest-row"><span>8 reps</span><span>3–4 min</span></div>
-      <div class="rest-row"><span>5 reps</span><span>4–5 min</span></div>
-      <div class="rest-row"><span>3 reps</span><span>5 min</span></div>
-      <div class="rest-row"><span>2 reps</span><span>5–6 min</span></div>
-      <div class="rest-row"><span>1 rep (peak)</span><span>6–8 min</span></div>
+
+    <div class="slabel">Struktura dnia ME wg Tate</div>
+    <div class="rule-card"><div class="rule-title" style="color:var(--me)">1 — Building Movement</div><div class="rule-body">Ćwiczenie bezpośrednio wspierające główny bój. Praca do heavy single. Rotuj co tydzień — nie powtarzaj przez minimum 4-6 tygodni.</div></div>
+    <div class="rule-card"><div class="rule-title" style="color:var(--me)">2 — Supplemental</div><div class="rule-body">Wzmacnia building movement. Złożone ćwiczenie, 3-5×3-5. Lower: GHR, RDL, Pin Pull. Upper: JM Press, Rolling DB Extension, Close-Grip Bench.</div></div>
+    <div class="rule-card"><div class="rule-title" style="color:var(--me)">3 — Accessory</div><div class="rule-body">Wzmacnia supplemental. Lower: hamstringi/pośladki — obowiązkowo. Upper: triceps — priorytet.</div></div>
+    <div class="rule-card"><div class="rule-title" style="color:var(--me)">4 — Lats (każdą sesję)</div><div class="rule-body">Tate: "Lats zapewniają półkę pod przysiad i platformę pod bench." Naprzemiennie vertical pull (pulldown, chin-ups) i horizontal pull (rows) każdą sesję.</div></div>
+    <div class="rule-card"><div class="rule-title" style="color:var(--me)">5-6 — Fluff & Buff</div><div class="rule-body">Hipertrofia. Bark, klatka, biceps — to co chcesz żeby rosło. Wyższe powtórzenia, umiarkowane ciężary.</div></div>
+
+    <div class="slabel">ME Lower — rotacja</div>
+    <div class="rotation-card">
+      <div class="rotation-title">Squat / DL variations</div>
+      <div class="rotation-item">Box Squat — do równoległości lub poniżej</div>
+      <div class="rotation-item">Paused Squat — 2-3 sek. pauza w dole</div>
+      <div class="rotation-item">Deficit Deadlift — ~5 cm na talerzach</div>
+      <div class="rotation-item">Rack Pull (from pins) — z kolan lub poniżej</div>
+      <div class="rotation-item">Paused Deadlift — pauza tuż nad podłogą</div>
+      <div class="rotation-item">Sumo Deadlift</div>
+      <div class="rotation-item">Good Morning — nigdy poniżej 3RM</div>
+      <div class="rotation-item">Romanian Deadlift — 3-5RM</div>
     </div>
-    <div class="slabel">Key Rules</div>
-    <div class="rule-card"><div class="rule-title" style="color:var(--accent)">Warm-up</div><div class="rule-body">Always build up gradually: 50% → 65% → 80% → working weight.</div></div>
-    <div class="rule-card"><div class="rule-title" style="color:#ffa040">Week 12 — Peak</div><div class="rule-body">Hit the planned weight first. If the single feels easy — take another attempt with +5–10 kg. Don't risk it earlier in the cycle.</div></div>
-    <div class="rule-card"><div class="rule-title" style="color:var(--squat)">After the Cycle — Deload</div><div class="rule-body">1–3 weeks at 50–60% of working weights. Then start a new cycle with your new 1RM as the baseline.</div></div>
-    <div class="rule-card"><div class="rule-title" style="color:var(--dead)">Accessories</div><div class="rule-body">Keep accessory weights moderate throughout the cycle. They support the main lifts — don't let them generate extra fatigue. Swap exercises within the same category every 2–3 weeks using the dropdown to keep things fresh.</div></div>
-    <div class="rule-card"><div class="rule-title" style="color:var(--light)">Progression</div><div class="rule-body">+7.5 kg/week on squat and deadlift, +5 kg/week on bench. Stick to the plan even when you feel strong.</div></div>
+
+    <div class="slabel">ME Upper — rotacja</div>
+    <div class="rotation-card">
+      <div class="rotation-title">Bench variations</div>
+      <div class="rotation-item">Floor Press</div>
+      <div class="rotation-item">Paused Bench — 2-3 sek. pauza na klatce</div>
+      <div class="rotation-item">Close-Grip Bench</div>
+      <div class="rotation-item">Board Press</div>
+      <div class="rotation-item">Incline Bench Press</div>
+      <div class="rotation-item">Seated Overhead Press</div>
+    </div>
+
+    <div class="rule-card"><div class="rule-title" style="color:var(--accent)">Co 8 tygodni</div><div class="rule-body">Test Competition Squat, Bench i Deadlift — zaktualizuj 1RM i oceń postęp.</div></div>
   </div>
 
 </div>
 
 <script>
-  const TAB_COLORS = { pon:'var(--squat)', wt:'var(--bench)', czw:'var(--dead)', rules:'var(--accent)' };
+  const TAB_COLORS = { pon:'var(--me)', wt:'var(--me)', czw:'var(--re)', rules:'var(--accent)' };
 
-  // Accessory slot definitions: each slot has a category label, set/rep tag, and a list of exercise options.
-  const ACCESSORY_SLOTS = {
-    'pon': [
-      { key:'pon-1', cat:'Quady', tag:'3 × 10–12', options:['Leg Press','Hack Squat','Bulgarian Split Squat','Front Squat'] },
-      { key:'pon-2', cat:'Hamstringi', tag:'3 × 10–12', options:['Leg Curl','Seated Leg Curl','Nordic Curl','Romanian Deadlift'] },
-      { key:'pon-3', cat:'Pośladki', tag:'3 × 10–12', options:['Hip Thrust','Glute Bridge','Cable Pull-Through','Single-Leg Hip Thrust'] },
-      { key:'pon-4', cat:'Quady (izolacja)', tag:'2 × 10–12', options:['Leg Extension','Sissy Squat','Walking Lunge'] },
-      { key:'pon-5', cat:'Łydki', tag:'3 × 10–12', options:['Calf Raises','Seated Calf Raise','Leg Press Calf Raise'] },
+  const ACC_SLOTS = {
+    'pon-supp': [
+      { key:'pon-s1', label:'Supplemental Lower', tag:'3–5 × 3–5', options:['Romanian Deadlift','Stiff-Leg Deadlift','Pin Pull','Good Morning (supp)','Paused Squat (supp)'] },
     ],
-    'wt': [
-      { key:'wt-1', cat:'Plecy (grube)', tag:'4 × 8', options:['Barbell Row','T-Bar Row','Pendlay Row','Chest-Supported Row'] },
-      { key:'wt-2', cat:'Plecy (szerokość)', tag:'4 × 10', options:['Pulldown','Chin-ups','Single-arm Lat Pulldown','Straight-Arm Pulldown'] },
-      { key:'wt-3', cat:'Bark boczny', tag:'3 × 12–15', options:['Side Raise','Cable Lateral Raise','Lu Raise'] },
-      { key:'wt-4', cat:'Triceps', tag:'3 × 10–12', options:['Tricep Extension','Skull Crusher','JM Press','Rope Pushdown'] },
-      { key:'wt-5', cat:'Biceps', tag:'3 × 10–12', options:['Bicep Curl','Hammer Curl','Incline DB Curl','Cable Curl'] },
-      { key:'wt-6', cat:'Klatka (izolacja)', tag:'2 × 12–15', options:['Machine Flye','Cable Crossover','Dumbbell Flyes'] },
+    'pon-acc': [
+      { key:'pon-a1', label:'Posterior Chain 1', tag:'3 × 10', options:['Leg Curl','Seated Leg Curl','Nordic Curl','Hip Thrust','Glute Bridge'] },
+      { key:'pon-a2', label:'Posterior Chain 2', tag:'3 × 10', options:['Hip Extension','Cable Pull-Through','Hip Thrust','Single-Leg Hip Thrust','Reverse Hyperextension (45°)'] },
     ],
-    'czw-lower': [
-      { key:'czw-1', cat:'Quady', tag:'2 × 10–12', options:['Hack Squat','Bulgarian Split Squat','Leg Press'] },
-      { key:'czw-2', cat:'Hamstringi', tag:'3 × 10–12', options:['Leg Curl','Seated Leg Curl','Nordic Curl'] },
-      { key:'czw-3', cat:'Pośladki (failure)', tag:'1 × failure', options:['Hip Extension','Glute Bridge','Cable Pull-Through'] },
-      { key:'czw-4', cat:'Łydki', tag:'3 × 10–12', options:['Calf Raises','Seated Calf Raise'] },
+    'pon-lats': [
+      { key:'pon-l1', label:'Lats — horizontal lub vertical', tag:'3 × 8–10', options:['Barbell Row','T-Bar Row','Chest-Supported Row','Pendlay Row','Pulldown','Chin-ups','Single-arm Row'] },
     ],
-    'czw-upper': [
-      { key:'czw-5', cat:'Klatka', tag:'2 × 12–15', options:['Chest Press','Machine Flye','Cable Crossover','Dumbbell Flyes'] },
-      { key:'czw-6', cat:'Bark przedni', tag:'2 × 10', options:['OHP','Arnold Press','Landmine Press'] },
-      { key:'czw-7', cat:'Plecy', tag:'3 × 10–12', options:['Seated Cable Row','Chest-Supported Row','T-Bar Row'] },
-      { key:'czw-8', cat:'Bark tylny', tag:'2 × 15', options:['Face Pull','Rear Delt Raise','Band Pull-Apart'] },
-      { key:'czw-9', cat:'Biceps', tag:'1 × 15', options:['Bicep Curl','Hammer Curl','Cable Curl'] },
-      { key:'czw-10', cat:'Triceps', tag:'1 × 15', options:['Tricep Extension','Rope Pushdown','Skull Crusher'] },
+    'pon-abs': [
+      { key:'pon-ab1', label:'Abs', tag:'3 × 15–20', options:['Hanging Leg Raise','Ab Wheel','Cable Crunch','Weighted Sit-up'] },
+    ],
+    'wt-supp': [
+      { key:'wt-s1', label:'Supplemental Upper', tag:'3–5 × 3–5', options:['JM Press','Close-Grip Bench (supp)','Rolling DB Extension','Floor Press (supp)','Paused Bench (supp)'] },
+    ],
+    'wt-tri': [
+      { key:'wt-t1', label:'Triceps 1', tag:'3 × 8–10', options:['Skull Crusher','Tricep Extension','Rope Pushdown','Tricep Dips','Overhead Tricep Extension'] },
+      { key:'wt-t2', label:'Triceps 2', tag:'3 × 10–12', options:['Rope Pushdown','Tricep Pushdown','Skull Crusher','Tricep Extension','JM Press (lekki)'] },
+    ],
+    'wt-lats': [
+      { key:'wt-l1', label:'Lats — naprzemiennie z Pn', tag:'3 × 8–10', options:['Pulldown','Chin-ups','Single-arm Lat Pulldown','Barbell Row','Seated Cable Row','T-Bar Row'] },
+    ],
+    'wt-fluff': [
+      { key:'wt-f1', label:'Bark / Klatka', tag:'3 × 12–15', options:['Side Raise','Face Pull','Dumbbell Press Incline','Dumbbell Flyes','Cable Crossover','Rear Delt Raise'] },
+      { key:'wt-f2', label:'Biceps', tag:'3 × 12–15', options:['Bicep Curl','Hammer Curl','Incline DB Curl','Cable Curl'] },
+    ],
+    'czw-lower-build': [
+      { key:'czw-lb1', label:'Lower Building', tag:'3 × 8–12', options:['Leg Press','Hack Squat','Bulgarian Split Squat','Front Squat','Walking Lunge','Smith Machine Squat'] },
+    ],
+    'czw-lower-post': [
+      { key:'czw-lp1', label:'Posterior Chain', tag:'3 × 10–12', options:['Romanian Deadlift','Leg Curl','Seated Leg Curl','Nordic Curl','Hip Thrust','Glute Bridge'] },
+    ],
+    'czw-upper-build': [
+      { key:'czw-ub1', label:'Upper Building', tag:'3 × 10–12', options:['Dumbbell Press Flat','Dumbbell Press Incline','Chest Press Machine','Dumbbell Flyes','Cable Crossover'] },
+    ],
+    'czw-upper-tri': [
+      { key:'czw-ut1', label:'Triceps', tag:'3 × 12–15', options:['Tricep Extension','Rope Pushdown','Skull Crusher','Tricep Dips','JM Press (lekki)'] },
+    ],
+    'czw-lats': [
+      { key:'czw-l1', label:'Lats', tag:'3 × 10–12', options:['Seated Cable Row','Chest-Supported Row','Barbell Row','Pulldown','Chin-ups','T-Bar Row'] },
+    ],
+    'czw-abs': [
+      { key:'czw-ab1', label:'Abs', tag:'3 × 15–20', options:['Hanging Leg Raise','Ab Wheel','Cable Crunch','Weighted Sit-up'] },
     ],
   };
 
   function renderAccessories() {
-    Object.keys(ACCESSORY_SLOTS).forEach(group => {
-      let containerId;
-      if (group === 'pon') containerId = 'acc-pon';
-      else if (group === 'wt') containerId = 'acc-wt';
-      else if (group === 'czw-lower') containerId = 'acc-czw-lower';
-      else if (group === 'czw-upper') containerId = 'acc-czw-upper';
-      const container = document.getElementById(containerId);
+    const map = {
+      'pon-supp':'acc-pon-supp','pon-acc':'acc-pon-acc','pon-lats':'acc-pon-lats','pon-abs':'acc-pon-abs',
+      'wt-supp':'acc-wt-supp','wt-tri':'acc-wt-tri','wt-lats':'acc-wt-lats','wt-fluff':'acc-wt-fluff',
+      'czw-lower-build':'acc-czw-lower-build','czw-lower-post':'acc-czw-lower-post',
+      'czw-upper-build':'acc-czw-upper-build','czw-upper-tri':'acc-czw-upper-tri',
+      'czw-lats':'acc-czw-lats','czw-abs':'acc-czw-abs',
+    };
+    Object.keys(ACC_SLOTS).forEach(group => {
+      const container = document.getElementById(map[group]);
       if (!container) return;
-
-      ACCESSORY_SLOTS[group].forEach(slot => {
+      ACC_SLOTS[group].forEach(slot => {
+        const savedEx = localStorage.getItem('exercise_'+slot.key) || slot.options[0];
+        const savedKg = localStorage.getItem('coan_'+slot.key) || '';
+        const savedNote = localStorage.getItem('coan_note_'+slot.key) || '';
+        const opts = slot.options.map(o => `<option value="${o}" ${o===savedEx?'selected':''}>${o}</option>`).join('');
         const item = document.createElement('div');
         item.className = 'acc-item';
-
-        const savedExercise = localStorage.getItem('exercise_' + slot.key) || slot.options[0];
-        const savedKg = localStorage.getItem('coan_' + slot.key) || '';
-        const savedNote = localStorage.getItem('coan_note_' + slot.key) || '';
-
-        const optionsHtml = slot.options.map(opt =>
-          `<option value="${opt}" ${opt === savedExercise ? 'selected' : ''}>${opt}</option>`
-        ).join('');
-
         item.innerHTML = `
+          <div class="acc-label">${slot.label}</div>
           <div class="acc-top-row">
             <div class="acc-select-wrap">
-              <select class="acc-select" data-key="${slot.key}" onchange="saveExercise(this)">${optionsHtml}</select>
+              <select class="acc-select" data-key="${slot.key}" onchange="saveExercise(this)">${opts}</select>
             </div>
             <span class="acc-tag-static">${slot.tag}</span>
-            <input class="acc-input ${savedKg ? 'has-value' : ''}" type="number" placeholder="kg" data-key="${slot.key}" value="${savedKg}" oninput="saveKg(this)">
+            <input class="acc-input ${savedKg?'has-value':''}" type="number" placeholder="kg" data-key="${slot.key}" value="${savedKg}" oninput="saveKg(this)">
           </div>
-          <textarea class="acc-note ${savedNote ? 'has-note' : ''}" rows="1" placeholder="note" data-key="${slot.key}" oninput="saveNote(this)">${savedNote}</textarea>
+          <textarea class="acc-note ${savedNote?'has-note':''}" rows="1" placeholder="note" data-key="${slot.key}" oninput="saveNote(this)">${savedNote}</textarea>
         `;
         container.appendChild(item);
       });
     });
   }
 
-  function saveExercise(select) {
-    localStorage.setItem('exercise_' + select.dataset.key, select.value);
+  function loadMeSelects() {
+    ['me-lower','me-upper'].forEach(key => {
+      const saved = localStorage.getItem('meselect_'+key);
+      if (saved) { const el = document.getElementById(key+'-select'); if (el) el.value = saved; }
+    });
+    ['me-lower-kg','me-lower-reps','me-upper-kg','me-upper-reps'].forEach(key => {
+      const saved = localStorage.getItem('meinput_'+key);
+      const el = document.querySelector(`[data-key="${key}"]`);
+      if (saved && el) { el.value = saved; el.classList.add('has-value'); }
+    });
   }
 
+  function saveMeSelect(key) {
+    const el = document.getElementById(key+'-select');
+    if (el) localStorage.setItem('meselect_'+key, el.value);
+  }
+  function saveMeInput(input) {
+    localStorage.setItem('meinput_'+input.dataset.key, input.value);
+    input.classList.toggle('has-value', input.value !== '');
+  }
+  function saveExercise(select) { localStorage.setItem('exercise_'+select.dataset.key, select.value); }
+  function saveKg(input) {
+    localStorage.setItem('coan_'+input.dataset.key, input.value);
+    input.classList.toggle('has-value', input.value !== '');
+  }
+  function saveNote(ta) {
+    localStorage.setItem('coan_note_'+ta.dataset.key, ta.value);
+    ta.classList.toggle('has-note', ta.value !== '');
+    ta.style.height='auto';
+    ta.style.height=ta.scrollHeight+'px';
+  }
   function switchTab(id) {
     document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
     document.querySelectorAll('.nav-btn').forEach(b => { b.classList.remove('active'); b.style.borderBottomColor='transparent'; });
@@ -336,46 +388,8 @@
     btn.style.borderBottomColor = TAB_COLORS[id];
   }
 
-  function toggleColl(header) { header.parentElement.classList.toggle('open'); }
-
-  function markWeek(row) {
-    const lift = row.dataset.lift;
-    const week = parseInt(row.dataset.week);
-    const current = parseInt(localStorage.getItem('week_'+lift) || '0');
-    localStorage.setItem('week_'+lift, week === current ? week - 1 : week);
-    renderWeeks(lift);
-  }
-
-  function renderWeeks(lift) {
-    const current = parseInt(localStorage.getItem('week_'+lift) || '0');
-    document.querySelectorAll(`.week-row[data-lift="${lift}"]`).forEach(row => {
-      const w = parseInt(row.dataset.week);
-      const check = row.querySelector('.week-check');
-      row.classList.remove('current','done');
-      if (w === current) { row.classList.add('current'); check.textContent='●'; }
-      else if (w < current) { row.classList.add('done'); check.textContent='✓'; }
-      else { check.textContent=''; }
-    });
-  }
-
-  function saveKg(input) {
-    localStorage.setItem('coan_'+input.dataset.key, input.value);
-    input.classList.toggle('has-value', input.value !== '');
-  }
-
-  function saveNote(ta) {
-    localStorage.setItem('coan_note_'+ta.dataset.key, ta.value);
-    ta.classList.toggle('has-note', ta.value !== '');
-    ta.style.height='auto';
-    ta.style.height=ta.scrollHeight+'px';
-  }
-
-  function loadAll() {
-    renderAccessories();
-    ['squat','bench','closegrip','incline','dead'].forEach(renderWeeks);
-  }
-
-  loadAll();
+  renderAccessories();
+  loadMeSelects();
 </script>
 </body>
 </html>
