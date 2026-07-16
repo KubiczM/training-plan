@@ -115,7 +115,7 @@
         <option value="paused_dl">Paused Deadlift</option>
       </select>
       <div class="me-info">
-        <strong>Protokół Tate:</strong> Serie po 3 rosnąc → single → heavy single (PR na tę wariację). 2-4 powt łącznie powyżej 90%. Naucz się "strainu" — 3-7 sek walki przez sticking point. Po PR — stop.
+        <strong>Protokół Tate:</strong> Serie po 3 rosnąc → single → heavy single (PR na tę wariację). Max 4 single powyżej 90%. Po PR — stop.
       </div>
       <div class="me-log">
         <div class="me-log-row"><span class="me-log-label">Ciężar</span><input class="me-input" type="number" placeholder="kg" data-key="me-lower-kg" oninput="saveMeInput(this)"></div>
@@ -134,6 +134,9 @@
 
     <div class="slabel">5 — Abs <span class="slabel-note">obowiązkowo</span></div>
     <div class="acc-list" id="acc-pon-abs"></div>
+
+    <div class="slabel">6 — Łydki</div>
+    <div class="acc-list" id="acc-pon-calves"></div>
   </div>
 
   <!-- TUESDAY — ME Upper -->
@@ -158,7 +161,7 @@
         <option value="ohp_me">Seated Overhead Press</option>
       </select>
       <div class="me-info">
-        <strong>Protokół Tate:</strong> Serie po 3 rosnąc → single → heavy single (PR na tę wariację). 2-4 powt łącznie powyżej 90%. Naucz się "strainu" — 3-7 sek walki przez sticking point. Po PR — stop.
+        <strong>Protokół Tate:</strong> Serie po 3 rosnąc → single → heavy single (PR na tę wariację). Max 4 single powyżej 90%. Po PR — stop.
       </div>
       <div class="me-log">
         <div class="me-log-row"><span class="me-log-label">Ciężar</span><input class="me-input" type="number" placeholder="kg" data-key="me-upper-kg" oninput="saveMeInput(this)"></div>
@@ -175,7 +178,7 @@
     <div class="slabel">4 — Lats <span class="slabel-note">każdą sesję — naprzemiennie vertical/horizontal</span></div>
     <div class="acc-list" id="acc-wt-lats"></div>
 
-    <div class="slabel">5 — Fluff & Buff <span class="slabel-note">hipertrofia · bark, klatka, biceps</span></div>
+    <div class="slabel">5 — Fluff & Buff <span class="slabel-note">bark, klatka, bark tylny, biceps</span></div>
     <div class="acc-list" id="acc-wt-fluff"></div>
   </div>
 
@@ -204,11 +207,20 @@
     <div class="slabel">Upper — Triceps <span class="slabel-note">priorytet</span></div>
     <div class="acc-list" id="acc-czw-upper-tri"></div>
 
+    <div class="slabel">Upper — Biceps</div>
+    <div class="acc-list" id="acc-czw-biceps"></div>
+
     <div class="slabel">Lats <span class="slabel-note">każdą sesję</span></div>
     <div class="acc-list" id="acc-czw-lats"></div>
 
     <div class="slabel">Abs <span class="slabel-note">obowiązkowo</span></div>
     <div class="acc-list" id="acc-czw-abs"></div>
+
+    <div class="slabel">Łydki</div>
+    <div class="acc-list" id="acc-czw-calves"></div>
+
+    <div class="slabel">Quady — izolacja</div>
+    <div class="acc-list" id="acc-czw-leg-ext"></div>
   </div>
 
   <!-- RULES -->
@@ -222,10 +234,9 @@
     <div class="rest-table">
       <div class="rest-row"><span>Monday</span><span style="color:var(--me)">Max Effort Lower</span></div>
       <div class="rest-row"><span>Tuesday</span><span style="color:var(--me)">Max Effort Upper</span></div>
-      <div class="rest-row"><span>Wednesday</span><span style="color:var(--muted)">— boks —</span></div>
+      <div class="rest-row"><span>Wednesday</span><span style="color:var(--muted)">— rest —</span></div>
       <div class="rest-row"><span>Thursday</span><span style="color:var(--re)">Full Body Repeated Effort</span></div>
-      <div class="rest-row"><span>Friday</span><span style="color:var(--muted)">— boks —</span></div>
-      <div class="rest-row"><span>Saturday / Sunday</span><span style="color:var(--muted)">— rest —</span></div>
+      <div class="rest-row"><span>Friday / Saturday / Sunday</span><span style="color:var(--muted)">— rest —</span></div>
     </div>
 
     <div class="slabel">Struktura dnia ME wg Tate</div>
@@ -286,6 +297,9 @@
     'pon-abs': [
       { key:'pon-ab1', label:'Abs', tag:'3 × 15–20', options:['Hanging Leg Raise','Ab Wheel','Cable Crunch','Weighted Sit-up'] },
     ],
+    'pon-calves': [
+      { key:'pon-c1', label:'Łydki', tag:'3 × 12–15', options:['Calf Raises','Seated Calf Raise','Leg Press Calf Raise'] },
+    ],
     'wt-supp': [
       { key:'wt-s1', label:'Supplemental Upper', tag:'3–5 × 3–5', options:['JM Press','Close-Grip Bench (supp)','Rolling DB Extension','Floor Press (supp)','Paused Bench (supp)'] },
     ],
@@ -297,8 +311,10 @@
       { key:'wt-l1', label:'Lats — naprzemiennie z Pn', tag:'3 × 8–10', options:['Pulldown','Chin-ups','Single-arm Lat Pulldown','Barbell Row','Seated Cable Row','T-Bar Row'] },
     ],
     'wt-fluff': [
-      { key:'wt-f1', label:'Bark / Klatka', tag:'3 × 12–15', options:['Side Raise','Face Pull','Dumbbell Press Incline','Dumbbell Flyes','Cable Crossover','Rear Delt Raise'] },
-      { key:'wt-f2', label:'Biceps', tag:'3 × 12–15', options:['Bicep Curl','Hammer Curl','Incline DB Curl','Cable Curl'] },
+      { key:'wt-f1', label:'Bark boczny', tag:'3 × 12–15', options:['Side Raise','Cable Lateral Raise','Lu Raise'] },
+      { key:'wt-f2', label:'Klatka', tag:'3 × 12–15', options:['Dumbbell Press Flat','Dumbbell Press Incline','Dumbbell Flyes','Cable Crossover','Machine Flye'] },
+      { key:'wt-f3', label:'Bark tylny', tag:'3 × 15', options:['Face Pull','Rear Delt Raise','Band Pull-Apart','Reverse Flye'] },
+      { key:'wt-f4', label:'Biceps', tag:'3 × 12–15', options:['Bicep Curl','Hammer Curl','Incline DB Curl','Cable Curl'] },
     ],
     'czw-lower-build': [
       { key:'czw-lb1', label:'Lower Building', tag:'3 × 8–12', options:['Leg Press','Hack Squat','Bulgarian Split Squat','Front Squat','Walking Lunge','Smith Machine Squat'] },
@@ -312,21 +328,31 @@
     'czw-upper-tri': [
       { key:'czw-ut1', label:'Triceps', tag:'3 × 12–15', options:['Tricep Extension','Rope Pushdown','Skull Crusher','Tricep Dips','JM Press (lekki)'] },
     ],
+    'czw-biceps': [
+      { key:'czw-bi1', label:'Biceps', tag:'3 × 12–15', options:['Bicep Curl','Hammer Curl','Incline DB Curl','Cable Curl'] },
+    ],
     'czw-lats': [
       { key:'czw-l1', label:'Lats', tag:'3 × 10–12', options:['Seated Cable Row','Chest-Supported Row','Barbell Row','Pulldown','Chin-ups','T-Bar Row'] },
     ],
     'czw-abs': [
       { key:'czw-ab1', label:'Abs', tag:'3 × 15–20', options:['Hanging Leg Raise','Ab Wheel','Cable Crunch','Weighted Sit-up'] },
     ],
+    'czw-calves': [
+      { key:'czw-ca1', label:'Łydki', tag:'3 × 12–15', options:['Calf Raises','Seated Calf Raise','Leg Press Calf Raise'] },
+    ],
+    'czw-leg-ext': [
+      { key:'czw-le1', label:'Quady (izolacja)', tag:'2 × 12–15', options:['Leg Extension','Sissy Squat'] },
+    ],
   };
 
   function renderAccessories() {
     const map = {
-      'pon-supp':'acc-pon-supp','pon-acc':'acc-pon-acc','pon-lats':'acc-pon-lats','pon-abs':'acc-pon-abs',
+      'pon-supp':'acc-pon-supp','pon-acc':'acc-pon-acc','pon-lats':'acc-pon-lats','pon-abs':'acc-pon-abs','pon-calves':'acc-pon-calves',
       'wt-supp':'acc-wt-supp','wt-tri':'acc-wt-tri','wt-lats':'acc-wt-lats','wt-fluff':'acc-wt-fluff',
       'czw-lower-build':'acc-czw-lower-build','czw-lower-post':'acc-czw-lower-post',
       'czw-upper-build':'acc-czw-upper-build','czw-upper-tri':'acc-czw-upper-tri',
-      'czw-lats':'acc-czw-lats','czw-abs':'acc-czw-abs',
+      'czw-biceps':'acc-czw-biceps','czw-lats':'acc-czw-lats','czw-abs':'acc-czw-abs',
+      'czw-calves':'acc-czw-calves','czw-leg-ext':'acc-czw-leg-ext',
     };
     Object.keys(ACC_SLOTS).forEach(group => {
       const container = document.getElementById(map[group]);
